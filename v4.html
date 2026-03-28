@@ -6,29 +6,32 @@
   <title>IBCCS TAX Uzbekistan — Tax, Legal & Business Advisory</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --g: #5EA397;
-      --g-soft: rgba(94,163,151,0.18);
-      --navy: #0C1220;
-      --navy2: #111929;
-      --navy3: #162032;
-      --border: rgba(255,255,255,0.07);
-      --border-strong: rgba(255,255,255,0.11);
-      --text: #DDD9D0;
-      --muted: rgba(221,217,208,0.45);
-      --muted2: rgba(221,217,208,0.28);
+      --green:   #5EA397;
+      --green-d: #4a8880;
+      --green-l: #EEF7F5;
+      --navy:    #0C1220;
+      --navy2:   #111929;
+      --cream:   #F7F5F0;
+      --white:   #FFFFFF;
+      --charcoal:#2F2E2C;
+      --rule-l:  rgba(47,46,44,0.12);
+      --rule-d:  rgba(255,255,255,0.08);
+      --muted-l: rgba(47,46,44,0.52);
+      --muted-d: rgba(240,236,228,0.48);
+      --text-d:  #EDE9E0;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--navy);
-      color: var(--text);
-      font-family: 'Barlow', sans-serif;
+      background: var(--white);
+      color: var(--charcoal);
+      font-family: 'Inter', sans-serif;
       font-size: 15px;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
@@ -38,74 +41,73 @@
     a { color: inherit; text-decoration: none; }
 
     .wrap {
-      max-width: 1240px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 52px;
+      padding: 0 56px;
     }
 
-    /* ── HEADER ── */
+    /* ─────────────────────────────
+       HEADER — white, sticky
+    ───────────────────────────── */
     header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--rule-l);
+      position: sticky;
+      top: 0;
       z-index: 100;
-      background: rgba(12,18,32,0.92);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
     }
 
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 68px;
+      padding: 20px 0 0;
     }
 
-    .logo-img {
-      height: 28px;
-      width: auto;
-      filter: brightness(0) invert(1);
-      opacity: 0.85;
-    }
+    .logo-img { height: 26px; width: auto; }
 
     nav {
       display: flex;
       gap: 36px;
+      border-top: 1px solid var(--rule-l);
+      padding: 12px 0;
+      margin-top: 16px;
       align-items: center;
     }
 
     nav a {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--muted);
+      font-weight: 400;
+      color: var(--muted-l);
       transition: color 0.2s;
     }
 
-    nav a:hover { color: var(--text); }
+    nav a:hover { color: var(--charcoal); }
 
-    .nav-btn {
-      border: 1px solid var(--g);
-      color: var(--g) !important;
+    .nav-cta {
+      margin-left: auto;
+      background: var(--green);
+      color: #fff !important;
       padding: 8px 22px;
-      letter-spacing: 0.16em !important;
-      transition: background 0.2s, color 0.2s !important;
+      font-size: 10.5px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.14em !important;
+      transition: background 0.2s !important;
     }
 
-    .nav-btn:hover {
-      background: var(--g) !important;
-      color: var(--navy) !important;
-    }
+    .nav-cta:hover { background: var(--green-d) !important; }
 
-    /* ── HERO ── */
+    /* ─────────────────────────────
+       HERO — dark navy, full photo
+    ───────────────────────────── */
     .hero {
-      min-height: 100vh;
       position: relative;
+      min-height: 70vh;
       display: flex;
       align-items: flex-end;
       overflow: hidden;
-      padding-top: 68px;
     }
 
     .hero-bg {
@@ -116,20 +118,19 @@
       background-position: center 28%;
     }
 
-    /* Deep navy gradient — not black, feels premium and geo-specific */
     .hero-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        105deg,
-        rgba(12,18,32,0.96) 0%,
-        rgba(12,18,32,0.82) 45%,
-        rgba(12,18,32,0.50) 100%
+        110deg,
+        rgba(12,18,32,0.97) 0%,
+        rgba(12,18,32,0.80) 50%,
+        rgba(12,18,32,0.45) 100%
       ),
       linear-gradient(
         to bottom,
-        rgba(12,18,32,0.20) 0%,
-        rgba(12,18,32,0.88) 75%,
+        rgba(12,18,32,0.15) 0%,
+        rgba(12,18,32,0.92) 80%,
         rgba(12,18,32,1) 100%
       );
     }
@@ -137,22 +138,20 @@
     .hero-inner {
       position: relative;
       z-index: 2;
-      padding: 100px 0 96px;
+      padding: 60px 0 64px;
       width: 100%;
       display: grid;
-      grid-template-columns: 1fr 380px;
+      grid-template-columns: 1fr 360px;
       gap: 80px;
       align-items: flex-end;
     }
 
     .hero-eyebrow {
-      font-family: 'Barlow Condensed', sans-serif;
       font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.36em;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
-      color: var(--g);
-      margin-bottom: 28px;
+      color: var(--green);
+      margin-bottom: 18px;
       display: flex;
       align-items: center;
       gap: 14px;
@@ -161,197 +160,212 @@
 
     .hero-eyebrow::before {
       content: '';
-      width: 28px;
-      height: 1px;
-      background: var(--g);
+      width: 28px; height: 1px;
+      background: var(--green);
     }
 
-    /* Serif headline — the key change for premium feel */
     .hero-h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      font-size: clamp(64px, 8vw, 112px);
-      line-height: 0.95;
-      letter-spacing: -1px;
-      color: var(--text);
-      margin-bottom: 44px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(44px, 5.5vw, 72px);
+      line-height: 1.05;
+      color: var(--text-d);
+      margin-bottom: 28px;
       animation: fadeUp 0.8s ease 0.22s both;
     }
 
-    .hero-h1 em {
-      font-style: italic;
-      color: var(--g);
-    }
+    .hero-h1 em { font-style: italic; color: var(--green); }
 
     .hero-sub {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 300;
-      color: rgba(221,217,208,0.65);
-      line-height: 1.8;
-      max-width: 520px;
-      margin-bottom: 44px;
+      color: rgba(237,233,224,0.62);
+      line-height: 1.75;
+      max-width: 500px;
+      margin-bottom: 32px;
       animation: fadeUp 0.8s ease 0.36s both;
     }
 
-    .hero-actions {
+    .hero-btns {
       display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
+      gap: 14px;
       animation: fadeUp 0.8s ease 0.48s both;
     }
 
-    .btn-primary {
+    .btn-green {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: var(--g);
-      color: var(--navy);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
+      background: var(--green);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      padding: 15px 36px;
+      padding: 14px 32px;
       transition: background 0.2s;
     }
 
-    .btn-primary:hover { background: #75b9af; }
+    .btn-green:hover { background: var(--green-d); }
 
-    .btn-outline {
+    .btn-ghost-d {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      border: 1px solid var(--border-strong);
-      color: var(--muted);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
+      border: 1px solid rgba(237,233,224,0.2);
+      color: rgba(237,233,224,0.55);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      padding: 15px 30px;
+      padding: 14px 28px;
       transition: border-color 0.2s, color 0.2s;
     }
 
-    .btn-outline:hover { border-color: var(--g); color: var(--g); }
+    .btn-ghost-d:hover { border-color: var(--green); color: var(--green); }
 
-    /* Hero aside panel */
+    /* Hero aside */
     .hero-aside {
-      border-left: 1px solid var(--border-strong);
-      padding-left: 48px;
+      border-left: 1px solid rgba(255,255,255,0.1);
+      padding-left: 44px;
       animation: fadeUp 0.8s ease 0.3s both;
     }
 
     .aside-label {
-      font-family: 'Barlow Condensed', sans-serif;
       font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.32em;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--muted2);
-      margin-bottom: 28px;
+      color: rgba(237,233,224,0.28);
+      margin-bottom: 24px;
     }
 
     .aside-item {
-      padding: 18px 0;
-      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
     }
 
     .aside-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: 0.01em;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(237,233,224,0.75);
     }
 
     .aside-arrow {
-      color: var(--g);
-      font-size: 16px;
+      color: var(--green);
       opacity: 0;
       transform: translateX(-4px);
       transition: opacity 0.2s, transform 0.2s;
     }
 
     .aside-item:hover .aside-arrow { opacity: 1; transform: translateX(0); }
+    .aside-item:hover .aside-name { color: var(--text-d); }
 
-    /* ── INTRO ── */
-    .intro {
+    /* ─────────────────────────────
+       ABOUT — light cream
+    ───────────────────────────── */
+    .about {
+      background: var(--cream);
       padding: 100px 0;
-      border-top: 1px solid var(--border);
     }
 
-    .intro-inner {
+    .about-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 96px;
-      align-items: start;
+      align-items: center;
     }
 
-    .section-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.36em;
+    .about-left {}
+
+    .sec-label {
+      font-size: 9.5px;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--g);
-      margin-bottom: 24px;
+      color: var(--green);
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
-      gap: 14px;
-    }
-
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .intro-heading {
-      font-family: 'Cormorant Garamond', serif;
+      gap: 12px;
       font-weight: 500;
-      font-size: clamp(36px, 3.8vw, 52px);
-      line-height: 1.1;
-      letter-spacing: -0.5px;
     }
 
-    .intro-heading em { font-style: italic; color: var(--g); }
+    .sec-label::before {
+      content: '';
+      width: 20px; height: 1px;
+      background: var(--green);
+    }
 
-    .intro-body p {
+    .about-h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(34px, 3.6vw, 50px);
+      line-height: 1.15;
+      margin-bottom: 36px;
+    }
+
+    .about-h2 em { font-style: italic; color: var(--green); }
+
+    .about-body p {
       font-size: 15px;
       font-weight: 300;
-      color: var(--muted);
+      color: var(--muted-l);
       line-height: 1.9;
       margin-bottom: 18px;
     }
 
-    .intro-body p:last-child { margin-bottom: 0; }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-body strong { font-weight: 500; color: var(--charcoal); }
 
-    .intro-body strong { color: rgba(221,217,208,0.75); font-weight: 400; }
-
-    .text-link {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--g);
+    .link-arrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      color: var(--green);
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
       margin-top: 28px;
-      transition: gap 0.2s;
+      border-bottom: 1px solid rgba(94,163,151,0.35);
+      padding-bottom: 3px;
+      transition: gap 0.2s, border-color 0.2s;
     }
 
-    .text-link:hover { gap: 14px; }
+    .link-arrow:hover { gap: 14px; border-color: var(--green); }
 
-    /* ── SERVICES ── */
+    .about-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 3.5;
+    }
+
+    .about-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+
+    /* Green accent strip */
+    .about-img-wrap::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0;
+      width: 4px; height: 100%;
+      background: var(--green);
+      z-index: 1;
+    }
+
+    /* ─────────────────────────────
+       SERVICES — dark navy
+    ───────────────────────────── */
     .services {
-      padding: 80px 0 100px;
-      border-top: 1px solid var(--border);
+      background: var(--navy);
+      padding: 100px 0;
     }
 
     .services-top {
@@ -359,83 +373,85 @@
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       margin-bottom: 64px;
+      align-items: end;
     }
 
-    .services-heading {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      font-size: clamp(34px, 3.5vw, 48px);
-      line-height: 1.1;
-      letter-spacing: -0.5px;
+    .services-h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(34px, 3.6vw, 50px);
+      line-height: 1.15;
+      color: var(--text-d);
     }
 
-    .services-heading em { font-style: italic; color: var(--g); }
+    .services-h2 em { font-style: italic; color: var(--green); }
 
     .services-sub {
       font-size: 14.5px;
       font-weight: 300;
-      color: var(--muted);
+      color: var(--muted-d);
       line-height: 1.85;
-      padding-top: 6px;
     }
 
-    .svc-list { display: flex; flex-direction: column; }
-
-    .svc-row {
+    .svc-grid {
       display: grid;
-      grid-template-columns: 56px 1fr 1fr;
-      gap: 48px;
-      padding: 44px 0;
-      border-top: 1px solid var(--border);
-      align-items: start;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .svc-card {
+      background: var(--navy);
+      padding: 44px 36px 48px;
       transition: background 0.3s;
       position: relative;
     }
 
-    .svc-row::before {
+    .svc-card::after {
       content: '';
       position: absolute;
-      left: -52px; right: -52px;
-      top: 0; bottom: 0;
-      background: rgba(94,163,151,0);
-      transition: background 0.35s;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--green);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
     }
 
-    .svc-row:hover::before { background: rgba(94,163,151,0.025); }
+    .svc-card:hover { background: var(--navy2); }
+    .svc-card:hover::after { transform: scaleX(1); }
 
     .svc-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 40px;
-      font-weight: 400;
-      color: rgba(94,163,151,0.22);
-      line-height: 1;
-      transition: color 0.3s;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--green);
+      margin-bottom: 22px;
+      opacity: 0.7;
     }
-
-    .svc-row:hover .svc-num { color: rgba(94,163,151,0.45); }
 
     .svc-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
       font-weight: 500;
-      line-height: 1.2;
-      padding-top: 4px;
+      line-height: 1.25;
+      color: var(--text-d);
+      margin-bottom: 16px;
     }
 
-    .svc-name em { font-style: italic; color: var(--g); }
+    .svc-name em { font-style: italic; color: var(--green); }
 
     .svc-desc {
       font-size: 13.5px;
       font-weight: 300;
-      color: var(--muted);
+      color: var(--muted-d);
       line-height: 1.82;
-      padding-top: 6px;
     }
 
-    /* ── STATEMENT ── */
+    /* ─────────────────────────────
+       STATEMENT — brand green
+    ───────────────────────────── */
     .statement {
-      border-top: 1px solid var(--border);
-      background: var(--navy2);
+      background: var(--green);
       padding: 112px 0;
     }
 
@@ -447,30 +463,48 @@
     }
 
     .statement-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
       font-size: clamp(40px, 5vw, 64px);
       line-height: 1.1;
-      letter-spacing: -0.5px;
+      color: #fff;
     }
 
-    .statement-quote em { font-style: italic; color: var(--g); }
+    .statement-quote em {
+      font-style: italic;
+      opacity: 0.75;
+    }
+
+    .statement-divider {
+      width: 48px; height: 2px;
+      background: rgba(255,255,255,0.4);
+      margin: 32px 0;
+    }
+
+    .statement-tagline {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.04em;
+    }
 
     .statement-right p {
       font-size: 15px;
       font-weight: 300;
-      color: var(--muted);
+      color: rgba(255,255,255,0.75);
       line-height: 1.9;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .statement-right p:last-child { margin-bottom: 0; }
-    .statement-right strong { color: rgba(221,217,208,0.7); font-weight: 400; }
+    .statement-right strong { font-weight: 500; color: #fff; }
 
-    /* ── SECTORS ── */
+    /* ─────────────────────────────
+       SECTORS — white
+    ───────────────────────────── */
     .sectors {
-      padding: 96px 0;
-      border-top: 1px solid var(--border);
+      background: var(--white);
+      padding: 100px 0;
     }
 
     .sectors-top {
@@ -478,66 +512,67 @@
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       margin-bottom: 52px;
+      align-items: end;
     }
 
-    .sectors-heading {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      font-size: clamp(32px, 3.2vw, 44px);
+    .sectors-h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(32px, 3.2vw, 46px);
       line-height: 1.15;
-      letter-spacing: -0.5px;
     }
 
-    .sectors-heading em { font-style: italic; color: var(--g); }
+    .sectors-h2 em { font-style: italic; color: var(--green); }
 
     .sectors-desc {
       font-size: 14.5px;
       font-weight: 300;
-      color: var(--muted);
+      color: var(--muted-l);
       line-height: 1.85;
-      padding-top: 4px;
     }
 
     .sectors-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
     }
 
     .sector-item {
-      background: var(--navy);
-      padding: 24px 28px;
-      font-size: 14px;
-      font-weight: 300;
-      color: rgba(221,217,208,0.48);
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--rule-l);
+      border-right: 1px solid var(--rule-l);
+      font-size: 13.5px;
+      font-weight: 400;
+      color: rgba(47,46,44,0.55);
       display: flex;
       align-items: center;
       gap: 12px;
-      transition: background 0.2s, color 0.2s;
+      transition: color 0.2s, background 0.2s;
     }
 
-    .sector-item::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border: 1px solid var(--g);
-      flex-shrink: 0;
-      opacity: 0.5;
-      transition: opacity 0.2s, background 0.2s;
-    }
+    .sector-item:nth-child(3n) { border-right: none; }
 
     .sector-item:hover {
-      background: var(--navy2);
-      color: var(--text);
+      color: var(--green);
+      background: var(--green-l);
     }
 
-    .sector-item:hover::before { opacity: 1; background: var(--g); }
+    .sector-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--green);
+      opacity: 0.4;
+      flex-shrink: 0;
+      transition: opacity 0.2s;
+    }
 
-    /* ── TEAM ── */
+    .sector-item:hover .sector-dot { opacity: 1; }
+
+    /* ─────────────────────────────
+       TEAM — dark navy
+    ───────────────────────────── */
     .team {
-      padding: 96px 0;
-      border-top: 1px solid var(--border);
+      background: var(--navy);
+      padding: 100px 0;
     }
 
     .team-top {
@@ -548,17 +583,18 @@
       align-items: end;
     }
 
-    .team-heading {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      font-size: clamp(32px, 3.2vw, 44px);
+    .team-h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(32px, 3.2vw, 46px);
       line-height: 1.15;
+      color: var(--text-d);
     }
 
     .team-sub {
       font-size: 14.5px;
       font-weight: 300;
-      color: var(--muted);
+      color: var(--muted-d);
       line-height: 1.85;
     }
 
@@ -566,7 +602,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: var(--border);
+      background: rgba(255,255,255,0.07);
     }
 
     .member {
@@ -583,52 +619,54 @@
       object-fit: cover;
       object-position: center top;
       display: block;
-      filter: grayscale(25%) sepia(10%);
-      transition: filter 0.45s;
+      filter: grayscale(20%);
+      transition: filter 0.4s;
     }
 
-    .member:hover .member-photo { filter: grayscale(0%) sepia(0%); }
+    .member:hover .member-photo { filter: grayscale(0%); }
 
     .member-info {
       padding: 28px 32px 36px;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid rgba(255,255,255,0.07);
     }
 
     .member-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
       font-weight: 500;
+      color: var(--text-d);
       margin-bottom: 6px;
     }
 
     .member-role {
       font-size: 11px;
       font-weight: 300;
-      color: var(--muted2);
+      color: var(--muted-d);
       letter-spacing: 0.06em;
       margin-bottom: 16px;
     }
 
     .member-linkedin {
-      font-family: 'Barlow Condensed', sans-serif;
       font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--g);
+      color: var(--green);
+      font-weight: 500;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      opacity: 0.65;
+      opacity: 0.7;
       transition: opacity 0.2s;
     }
 
     .member-linkedin:hover { opacity: 1; }
 
-    /* ── CONTACT ── */
+    /* ─────────────────────────────
+       CONTACT — cream / light
+    ───────────────────────────── */
     .contact {
+      background: var(--cream);
       padding: 112px 0;
-      border-top: 1px solid var(--border);
     }
 
     .contact-inner {
@@ -638,21 +676,20 @@
       align-items: start;
     }
 
-    .contact-heading {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
-      font-size: clamp(44px, 5.5vw, 72px);
-      line-height: 1.0;
-      letter-spacing: -0.5px;
-      margin-bottom: 28px;
+    .contact-h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(42px, 5vw, 66px);
+      line-height: 1.05;
+      margin-bottom: 24px;
     }
 
-    .contact-heading em { font-style: italic; color: var(--g); }
+    .contact-h2 em { font-style: italic; color: var(--green); }
 
     .contact-text {
       font-size: 15px;
       font-weight: 300;
-      color: var(--muted);
+      color: var(--muted-l);
       line-height: 1.88;
       margin-bottom: 44px;
     }
@@ -660,44 +697,41 @@
     .contact-details { display: flex; flex-direction: column; gap: 22px; }
 
     .cdetail-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.3em;
+      font-size: 9.5px;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--g);
-      margin-bottom: 5px;
+      color: var(--green);
+      font-weight: 500;
+      margin-bottom: 4px;
     }
 
     .cdetail-val {
       font-size: 14px;
       font-weight: 300;
-      color: rgba(221,217,208,0.55);
+      color: var(--muted-l);
       line-height: 1.6;
     }
 
+    /* Form */
     .form { display: flex; flex-direction: column; gap: 18px; }
-
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-
     .form-group { display: flex; flex-direction: column; gap: 7px; }
 
     .form-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.28em;
+      font-size: 9.5px;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--muted2);
+      color: rgba(47,46,44,0.36);
+      font-weight: 500;
     }
 
     .form-input,
     .form-select,
     .form-textarea {
-      background: var(--navy2);
-      border: 1px solid var(--border-strong);
-      color: var(--text);
-      font-family: 'Barlow', sans-serif;
+      background: var(--white);
+      border: 1px solid rgba(47,46,44,0.16);
+      color: var(--charcoal);
+      font-family: 'Inter', sans-serif;
       font-size: 14px;
       font-weight: 300;
       padding: 13px 16px;
@@ -707,41 +741,41 @@
     }
 
     .form-select { appearance: none; cursor: pointer; }
-
-    .form-textarea { resize: vertical; min-height: 110px; }
+    .form-textarea { resize: vertical; min-height: 112px; }
 
     .form-input:focus,
     .form-select:focus,
-    .form-textarea:focus { border-color: var(--g); }
+    .form-textarea:focus { border-color: var(--green); }
 
     .form-input::placeholder,
-    .form-textarea::placeholder { color: var(--muted2); }
+    .form-textarea::placeholder { color: rgba(47,46,44,0.2); }
 
     .form-submit {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: var(--g);
-      color: var(--navy);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
+      background: var(--charcoal);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      padding: 14px 34px;
+      font-weight: 500;
+      padding: 14px 32px;
       border: none;
       cursor: pointer;
       transition: background 0.2s;
       align-self: flex-start;
     }
 
-    .form-submit:hover { background: #75b9af; }
+    .form-submit:hover { background: var(--green); }
 
-    /* ── FOOTER ── */
+    /* ─────────────────────────────
+       FOOTER — dark navy
+    ───────────────────────────── */
     footer {
-      border-top: 1px solid var(--border);
       background: var(--navy2);
-      padding: 56px 0 28px;
+      padding: 60px 0 28px;
     }
 
     .footer-top {
@@ -749,7 +783,7 @@
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 56px;
       padding-bottom: 44px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
       margin-bottom: 24px;
     }
 
@@ -764,24 +798,22 @@
     .footer-tagline {
       font-size: 13px;
       font-weight: 300;
-      color: var(--muted2);
+      color: rgba(237,233,224,0.3);
       line-height: 1.72;
       margin-bottom: 14px;
     }
 
     .footer-group-note {
-      font-size: 10.5px;
-      color: rgba(221,217,208,0.18);
+      font-size: 11px;
+      color: rgba(237,233,224,0.18);
       letter-spacing: 0.04em;
     }
 
     .flabel {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.3em;
+      font-size: 9.5px;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: var(--g);
+      color: var(--green);
       margin-bottom: 18px;
       opacity: 0.8;
     }
@@ -791,21 +823,21 @@
     .footer-links a {
       font-size: 13px;
       font-weight: 300;
-      color: var(--muted2);
+      color: rgba(237,233,224,0.35);
       transition: color 0.2s;
     }
 
-    .footer-links a:hover { color: var(--text); }
+    .footer-links a:hover { color: var(--text-d); }
 
     .footer-address {
       font-size: 13px;
       font-weight: 300;
-      color: var(--muted2);
+      color: rgba(237,233,224,0.35);
       line-height: 1.75;
     }
 
     .footer-address a { transition: color 0.2s; }
-    .footer-address a:hover { color: var(--g); }
+    .footer-address a:hover { color: var(--green); }
 
     .footer-bottom {
       display: flex;
@@ -813,61 +845,65 @@
       align-items: center;
     }
 
-    .copy {
-      font-size: 11px;
-      color: rgba(221,217,208,0.18);
-      letter-spacing: 0.05em;
-    }
+    .copy { font-size: 11px; color: rgba(237,233,224,0.18); letter-spacing: 0.04em; }
 
     .footer-social { display: flex; gap: 20px; }
 
     .footer-social a {
-      font-family: 'Barlow Condensed', sans-serif;
       font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(221,217,208,0.22);
+      color: rgba(237,233,224,0.22);
+      font-weight: 500;
       transition: color 0.2s;
     }
 
-    .footer-social a:hover { color: var(--g); }
+    .footer-social a:hover { color: var(--green); }
 
     .back {
-      font-family: 'Barlow Condensed', sans-serif;
       font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(221,217,208,0.22);
+      color: rgba(237,233,224,0.22);
       transition: color 0.2s;
     }
 
-    .back:hover { color: var(--g); }
+    .back:hover { color: var(--green); }
 
-    /* ── ANIMATION ── */
+    /* ─────────────────────────────
+       ANIMATION
+    ───────────────────────────── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
+      from { opacity: 0; transform: translateY(22px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── RESPONSIVE ── */
+    /* ─────────────────────────────
+       RESPONSIVE
+    ───────────────────────────── */
     @media (max-width: 960px) {
-      .wrap { padding: 0 28px; }
-      .hero-inner { grid-template-columns: 1fr; }
+      .wrap { padding: 0 32px; }
+      .hero-inner,
+      .about-inner,
+      .statement-inner,
+      .sectors-top,
+      .services-top,
+      .team-top,
+      .contact-inner { grid-template-columns: 1fr; gap: 44px; }
       .hero-aside { display: none; }
-      .intro-inner, .statement-inner, .contact-inner,
-      .services-top, .sectors-top, .team-top { grid-template-columns: 1fr; gap: 36px; }
-      .svc-row { grid-template-columns: 48px 1fr; }
-      .svc-desc { display: none; }
+      .svc-grid,
       .team-grid { grid-template-columns: 1fr 1fr; }
       .sectors-grid { grid-template-columns: 1fr 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .statement { padding: 80px 0; }
+      .about-img-wrap { order: -1; }
     }
 
     @media (max-width: 640px) {
-      .wrap { padding: 0 20px; }
-      .team-grid, .sectors-grid { grid-template-columns: 1fr; }
+      .wrap { padding: 0 22px; }
+      .svc-grid,
+      .team-grid,
+      .sectors-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       nav { display: none; }
       .footer-top { grid-template-columns: 1fr; }
@@ -881,19 +917,20 @@
     <div class="wrap">
       <div class="topbar">
         <img src="assets/ibccs logo.avif" alt="IBCCS TAX" class="logo-img" />
-        <nav>
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#team">Team</a>
-          <a href="#contact" class="nav-btn">Book a Call</a>
-        </nav>
       </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#sectors">Sectors</a>
+        <a href="#team">Team</a>
+        <a href="#contact" class="nav-cta">Book a Call</a>
+      </nav>
     </div>
   </header>
 
   <main>
 
-    <!-- HERO -->
+    <!-- ① HERO — dark navy -->
     <section class="hero">
       <div class="hero-bg"></div>
       <div class="hero-overlay"></div>
@@ -907,9 +944,9 @@
               into <em>Opportunities</em>
             </h1>
             <p class="hero-sub">We help discover the best solutions on the Uzbekistan market to open or relocate a company and handle Accounting, Legal, and Tax matters — for businesses serious about Central Asia.</p>
-            <div class="hero-actions">
-              <a href="#contact" class="btn-primary">Book a Call →</a>
-              <a href="#contact" class="btn-outline">Get Price Estimate</a>
+            <div class="hero-btns">
+              <a href="#contact" class="btn-green">Book a Call →</a>
+              <a href="#contact" class="btn-ghost-d">Get Price Estimate</a>
             </div>
           </div>
           <div class="hero-aside">
@@ -943,121 +980,123 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section class="intro" id="about">
+    <!-- ② ABOUT — cream/light -->
+    <section class="about" id="about">
       <div class="wrap">
-        <div class="intro-inner">
-          <div>
-            <div class="section-label">About Us</div>
-            <h2 class="intro-heading">
-              Company Registration,<br>
-              Tax &amp; <em>Legal Services</em><br>
-              in Uzbekistan
-            </h2>
-            <a href="#services" class="text-link" style="margin-top:36px;">Explore Services →</a>
+        <div class="about-inner">
+          <div class="about-left">
+            <div class="sec-label">About Us</div>
+            <h2 class="about-h2">Company Registration, Tax &amp; <em>Legal Services</em> in Uzbekistan</h2>
+            <div class="about-body">
+              <p>Services provided by our firm are at the <strong>highest level of expertise, security, and confidentiality.</strong> Every client is unique — this is why we also offer flexibility when doing business so that our clients can receive services designed according to their needs.</p>
+              <p>IBCCS TAX Uzbekistan is proud to be a part of <strong>IBCCS TAX Group</strong> with headquarter in Cyprus and offices in Georgia and UAE. These locations allow us to serve our clients and partners more effectively.</p>
+              <p>At IBCCS TAX Uzbekistan, we help discover Uzbekistan's extraordinary potential as one of Central Asia's most dynamic and fast-growing markets.</p>
+            </div>
+            <a href="#services" class="link-arrow">Explore Services →</a>
           </div>
-          <div class="intro-body">
-            <p>Services provided by our firm are at the <strong>highest level of expertise, security, and confidentiality.</strong> Every client is unique — this is why we also offer flexibility when doing business so that our clients can receive services designed according to their needs.</p>
-            <p>IBCCS TAX Uzbekistan is proud to be a part of <strong>IBCCS TAX Group</strong> with headquarter in Cyprus and offices in Georgia and UAE. These locations allow us to serve our clients and partners more effectively.</p>
-            <p>At IBCCS TAX Uzbekistan, we help discover Uzbekistan's extraordinary potential as one of Central Asia's most dynamic and fast-growing markets.</p>
+          <div class="about-img-wrap">
+            <img src="assets/tashkent.png" alt="Tashkent, Uzbekistan" class="about-img" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
+    <!-- ③ SERVICES — dark navy -->
     <section class="services" id="services">
       <div class="wrap">
         <div class="services-top">
           <div>
-            <div class="section-label">What We Do</div>
-            <h2 class="services-heading">Tax &amp; Legal Advisory<br>in <em>Uzbekistan</em></h2>
+            <div class="sec-label" style="color:var(--green);">What We Do</div>
+            <h2 class="services-h2">Tax &amp; Legal Advisory<br>in <em>Uzbekistan</em></h2>
           </div>
           <p class="services-sub">As a consulting firm in Uzbekistan, we have the skills and expertise to handle a wide range of services both to individuals and businesses.</p>
         </div>
-        <div class="svc-list">
-          <div class="svc-row">
+        <div class="svc-grid">
+          <div class="svc-card">
             <div class="svc-num">01</div>
-            <div class="svc-name">Market <em>Entry</em></div>
+            <h3 class="svc-name">Market <em>Entry</em></h3>
             <p class="svc-desc">Combining legal, tax, and business advisory expertise, we turn international expansion plans into a commercially viable market entry strategy tailored to Uzbekistan.</p>
           </div>
-          <div class="svc-row">
+          <div class="svc-card">
             <div class="svc-num">02</div>
-            <div class="svc-name">Finance &amp; <em>Taxation</em></div>
-            <p class="svc-desc">By entrusting your finances, taxes, and accounting to professionals, you can devote your time solely to the development of your business. Full-scope compliance, strategic planning, and financial reporting under Uzbekistan's regulatory framework.</p>
+            <h3 class="svc-name">Finance &amp; <em>Taxation</em></h3>
+            <p class="svc-desc">By entrusting your finances, taxes, and accounting to professionals, you can devote your time solely to the development of your business. Full-scope compliance, strategic planning, and financial reporting.</p>
           </div>
-          <div class="svc-row">
+          <div class="svc-card">
             <div class="svc-num">03</div>
-            <div class="svc-name">Business <em>Registration</em></div>
-            <p class="svc-desc">We assist international and local clients with business registration in Uzbekistan and provide legal &amp; tax advisory on Uzbek regulations. End-to-end entity formation — structured correctly from day one.</p>
+            <h3 class="svc-name">Business <em>Registration</em></h3>
+            <p class="svc-desc">We assist international and local clients with business registration in Uzbekistan and provide legal &amp; tax advisory. End-to-end entity formation — structured correctly from day one.</p>
           </div>
-          <div class="svc-row">
+          <div class="svc-card">
             <div class="svc-num">04</div>
-            <div class="svc-name">Legal <em>Services</em></div>
-            <p class="svc-desc">Our legal professionals experienced in the laws of Uzbekistan provide guidance and help navigate any legal complexities. Corporate law, contract structuring, regulatory compliance, and transactional counsel.</p>
+            <h3 class="svc-name">Legal <em>Services</em></h3>
+            <p class="svc-desc">Our legal professionals experienced in the laws of Uzbekistan provide guidance and help navigate any legal complexities. Corporate law, contract structuring, and transactional counsel.</p>
           </div>
-          <div class="svc-row">
+          <div class="svc-card">
             <div class="svc-num">05</div>
-            <div class="svc-name">Expat <em>Services</em></div>
-            <p class="svc-desc">We offer a wide range of support for individuals and families moving to Uzbekistan. From residency and visa matters to banking and relocation assistance — making your transition as seamless as possible.</p>
+            <h3 class="svc-name">Expat <em>Services</em></h3>
+            <p class="svc-desc">We offer a wide range of support for individuals and families moving to Uzbekistan. From residency and visa matters to banking and relocation assistance — making your transition seamless.</p>
           </div>
-          <div class="svc-row">
+          <div class="svc-card">
             <div class="svc-num">06</div>
-            <div class="svc-name">Startup <em>Services</em></div>
+            <h3 class="svc-name">Startup <em>Services</em></h3>
             <p class="svc-desc">We act as a strategic partner for early-stage and scaling startups, combining legal, tax, accounting, and advisory expertise. From inception through investment readiness.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STATEMENT -->
+    <!-- ④ STATEMENT — brand green -->
     <section class="statement">
       <div class="wrap">
         <div class="statement-inner">
-          <div class="statement-quote">
-            IBCCS TAX Uzbekistan<br>
-            — <em>Your Gateway<br>to Growth</em>
+          <div>
+            <div class="statement-quote">
+              IBCCS TAX<br>Uzbekistan<br>— <em>Your Gateway<br>to Growth</em>
+            </div>
+            <div class="statement-divider"></div>
+            <div class="statement-tagline">Every client is unique. Every solution is precise.</div>
           </div>
           <div class="statement-right">
             <p>Uzbekistan is one of the <strong>fastest-evolving markets in Central Asia.</strong> Backed by ongoing economic reforms, investor-friendly policies, Special Economic Zones, and a growing domestic market — the opportunity is real.</p>
             <p>But so is the complexity. Local tax, legal, and regulatory frameworks require practical, on-the-ground knowledge to navigate correctly. IBCCS TAX Uzbekistan exists to turn that complexity into your competitive advantage.</p>
-            <p>We begin with your objectives, business model, and long-term plans — then shape the legal, tax, and operational structure accordingly.</p>
+            <p>We begin with your objectives, business model, and long-term plans — then shape the legal, tax, and operational structure accordingly. The result: advice that is not only compliant on paper, but workable in practice and aligned with growth.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTORS -->
+    <!-- ⑤ SECTORS — white -->
     <section class="sectors" id="sectors">
       <div class="wrap">
         <div class="sectors-top">
           <div>
-            <div class="section-label">Industry Expertise</div>
-            <h2 class="sectors-heading">Accounting &amp; Tax Solutions<br>Across <em>Key Sectors</em></h2>
+            <div class="sec-label">Industry Expertise</div>
+            <h2 class="sectors-h2">Tax &amp; Accounting Solutions<br>Across <em>Key Sectors</em></h2>
           </div>
           <p class="sectors-desc">IBCCS TAX Uzbekistan's expertise covers a variety of industries. Our team of tax experts and accountants is equipped to provide tailored, professional solutions for businesses in any of these sectors.</p>
         </div>
         <div class="sectors-grid">
-          <div class="sector-item">Software Development &amp; IT</div>
-          <div class="sector-item">Manufacturing &amp; Production</div>
-          <div class="sector-item">Logistics &amp; Trading</div>
-          <div class="sector-item">Development &amp; Construction</div>
-          <div class="sector-item">Renewable Energy</div>
-          <div class="sector-item">Tourism &amp; Hospitality</div>
-          <div class="sector-item">Agriculture &amp; Agribusiness</div>
-          <div class="sector-item">Media &amp; Entertainment</div>
-          <div class="sector-item">Gas, Oil &amp; Mining</div>
+          <div class="sector-item"><span class="sector-dot"></span>Software Development &amp; IT</div>
+          <div class="sector-item"><span class="sector-dot"></span>Manufacturing &amp; Production</div>
+          <div class="sector-item"><span class="sector-dot"></span>Logistics &amp; Trading</div>
+          <div class="sector-item"><span class="sector-dot"></span>Development &amp; Construction</div>
+          <div class="sector-item"><span class="sector-dot"></span>Renewable Energy</div>
+          <div class="sector-item"><span class="sector-dot"></span>Tourism &amp; Hospitality</div>
+          <div class="sector-item"><span class="sector-dot"></span>Agriculture &amp; Agribusiness</div>
+          <div class="sector-item"><span class="sector-dot"></span>Media &amp; Entertainment</div>
+          <div class="sector-item"><span class="sector-dot"></span>Gas, Oil &amp; Mining</div>
         </div>
       </div>
     </section>
 
-    <!-- TEAM -->
+    <!-- ⑥ TEAM — dark navy -->
     <section class="team" id="team">
       <div class="wrap">
         <div class="team-top">
           <div>
-            <div class="section-label">Our Team</div>
-            <h2 class="team-heading">Tax Advisors, Accountants<br>&amp; Legal Experts</h2>
+            <div class="sec-label" style="color:var(--green);">Our Team</div>
+            <h2 class="team-h2">Tax Advisors, Accountants<br>&amp; Legal Experts</h2>
           </div>
           <p class="team-sub">Our team has a wealth of knowledge and experience in all aspects of international taxation, accounting, and legal services. We take the time to understand your goals and develop the best course of action to meet them.</p>
         </div>
@@ -1090,13 +1129,13 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- ⑦ CONTACT — cream/light -->
     <section class="contact" id="contact">
       <div class="wrap">
         <div class="contact-inner">
           <div>
-            <div class="section-label">Get in Touch</div>
-            <h2 class="contact-heading">Tell Us<br>About Your<br><em>Needs.</em></h2>
+            <div class="sec-label">Get in Touch</div>
+            <h2 class="contact-h2">Tell Us About<br>Your <em>Needs.</em></h2>
             <p class="contact-text">We love working individually with new clients and listening about the challenges they are facing. Provide a few details and we will be happy to assist you.</p>
             <div class="contact-details">
               <div>
@@ -1149,7 +1188,7 @@
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- ⑧ FOOTER — dark navy -->
   <footer>
     <div class="wrap">
       <div class="footer-top">
