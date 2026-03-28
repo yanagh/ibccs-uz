@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IBCCS TAX Uzbekistan — Tax, Legal & Business Advisory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #5EA397;
+      --green-d: #4a8880;
+      --green-l: #EEF7F5;
+      --green-m: #D0EAE6;
+      --charcoal: #1E1E1C;
+      --mid: #4A4845;
+      --muted: rgba(30,30,28,0.48);
+      --muted-light: rgba(30,30,28,0.32);
+      --rule: rgba(30,30,28,0.08);
+      --rule-strong: rgba(30,30,28,0.14);
+      --bg: #F5F5F2;
+      --white: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--charcoal);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--rule-strong);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .logo-img { height: 28px; width: auto; }
+
+    nav { display: flex; gap: 32px; align-items: center; }
+
+    nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--charcoal); }
+
+    .nav-cta {
+      background: var(--green);
+      color: #fff !important;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--green-d) !important; }
+
+    /* ── HERO — Clean typographic, no image background ── */
+    .hero {
+      background: var(--white);
+      border-bottom: 1px solid var(--rule-strong);
+      padding: 96px 0 88px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-l);
+      border: 1px solid var(--green-m);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: clamp(44px, 5.5vw, 68px);
+      font-weight: 800;
+      line-height: 1.06;
+      color: var(--charcoal);
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 .accent { color: var(--green); }
+
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.78;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover { background: var(--green-d); transform: translateY(-1px); }
+
+    .btn-ghost {
+      color: var(--charcoal);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 10px;
+      border: 1.5px solid var(--rule-strong);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-ghost:hover { border-color: var(--green); color: var(--green); }
+
+    /* Hero right — service list */
+    .hero-services {
+      background: var(--bg);
+      border: 1.5px solid var(--rule-strong);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .hero-services-header {
+      padding: 20px 28px;
+      border-bottom: 1.5px solid var(--rule-strong);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted-light);
+    }
+
+    .hs-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 28px;
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.18s;
+    }
+
+    .hs-item:last-child { border-bottom: none; }
+
+    .hs-item:hover { background: var(--white); }
+
+    .hs-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .hs-arrow {
+      font-size: 14px;
+      color: var(--green);
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity 0.18s, transform 0.18s;
+    }
+
+    .hs-item:hover .hs-arrow { opacity: 1; transform: translateX(0); }
+
+    /* ── ABOUT ── */
+    .about {
+      padding: 96px 0;
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3.2;
+    }
+
+    .about-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 32%;
+      display: block;
+    }
+
+    /* Subtle green accent strip on image */
+    .about-img-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 4px;
+      background: var(--green);
+    }
+
+    .about-content {}
+
+    .section-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .section-h {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      line-height: 1.12;
+      margin-bottom: 24px;
+    }
+
+    .about-body p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.88;
+      margin-bottom: 16px;
+    }
+
+    .about-body p:last-child { margin-bottom: 0; }
+
+    .about-body strong { font-weight: 600; color: var(--charcoal); }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 24px;
+      transition: gap 0.2s;
+    }
+
+    .text-link:hover { gap: 14px; }
+
+    /* ── SERVICES ── */
+    .services {
+      padding: 0 0 96px;
+    }
+
+    .section-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 48px;
+      max-width: 540px;
+    }
+
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .svc-card {
+      background: var(--white);
+      border: 1.5px solid var(--rule-strong);
+      border-radius: 14px;
+      padding: 36px 30px 40px;
+      transition: border-color 0.22s, box-shadow 0.22s, transform 0.22s;
+    }
+
+    .svc-card:hover {
+      border-color: var(--green-m);
+      box-shadow: 0 12px 48px rgba(94,163,151,0.10);
+      transform: translateY(-3px);
+    }
+
+    .svc-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .svc-name {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.2px;
+      line-height: 1.3;
+    }
+
+    .svc-desc {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── STATEMENT ── */
+    .statement {
+      background: var(--charcoal);
+      border-radius: 20px;
+      padding: 80px 72px;
+      margin: 0 0 96px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .statement-left h2 {
+      font-size: clamp(30px, 3.8vw, 46px);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .statement-left h2 .accent { color: var(--green); }
+
+    .statement-left p {
+      font-size: 14.5px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.75;
+    }
+
+    .statement-right p {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.58);
+      line-height: 1.88;
+      margin-bottom: 16px;
+    }
+
+    .statement-right p:last-child { margin-bottom: 0; }
+    .statement-right strong { font-weight: 600; color: rgba(255,255,255,0.85); }
+
+    /* ── SECTORS ── */
+    .sectors { padding: 0 0 96px; }
+
+    .sectors-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+      margin-top: 40px;
+    }
+
+    .sectors-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .sectors-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .sector-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      border: 1.5px solid var(--rule-strong);
+      border-radius: 8px;
+      padding: 11px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .sector-chip:hover {
+      border-color: var(--green-m);
+      color: var(--green-d);
+      background: var(--green-l);
+    }
+
+    .sector-chip::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      opacity: 0.45;
+      flex-shrink: 0;
+    }
+
+    /* ── TEAM ── */
+    .team { padding: 0 0 96px; }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 44px;
+    }
+
+    .member-card {
+      background: var(--white);
+      border: 1.5px solid var(--rule-strong);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+
+    .member-card:hover {
+      box-shadow: 0 12px 48px rgba(30,30,28,0.08);
+      transform: translateY(-4px);
+    }
+
+    .member-photo {
+      width: 100%;
+      aspect-ratio: 3 / 3.2;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(12%);
+      transition: filter 0.4s;
+    }
+
+    .member-card:hover .member-photo { filter: grayscale(0%); }
+
+    .member-info {
+      padding: 22px 26px 28px;
+      border-top: 1.5px solid var(--rule-strong);
+    }
+
+    .member-name {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      letter-spacing: -0.2px;
+    }
+
+    .member-role {
+      font-size: 12.5px;
+      color: var(--muted-light);
+      font-weight: 400;
+      margin-bottom: 14px;
+    }
+
+    .member-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green-l);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .member-linkedin:hover { background: var(--green-m); }
+
+    /* ── CONTACT ── */
+    .contact { padding: 0 0 96px; }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+      margin-top: 40px;
+    }
+
+    .contact-panel {
+      background: var(--white);
+      border: 1.5px solid var(--rule-strong);
+      border-radius: 16px;
+      padding: 44px 40px;
+    }
+
+    .contact-panel h3 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+    }
+
+    .contact-panel h3 .accent { color: var(--green); }
+
+    .contact-panel p {
+      font-size: 14.5px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.82;
+      margin-bottom: 32px;
+    }
+
+    .contact-details { display: flex; flex-direction: column; gap: 18px; }
+
+    .cdetail-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 3px;
+    }
+
+    .cdetail-val {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .form-panel {
+      background: var(--white);
+      border: 1.5px solid var(--rule-strong);
+      border-radius: 16px;
+      padding: 44px 40px;
+    }
+
+    .form-panel h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 28px;
+      letter-spacing: -0.3px;
+    }
+
+    .form { display: flex; flex-direction: column; gap: 16px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+    .form-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(30,30,28,0.36);
+      text-transform: uppercase;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      background: var(--bg);
+      border: 1.5px solid var(--rule-strong);
+      border-radius: 8px;
+      color: var(--charcoal);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      padding: 12px 15px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      width: 100%;
+    }
+
+    .form-select { appearance: none; cursor: pointer; }
+    .form-textarea { resize: vertical; min-height: 104px; }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus { border-color: var(--green); background: #fff; }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: rgba(30,30,28,0.2); }
+
+    .form-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      align-self: flex-start;
+    }
+
+    .form-submit:hover { background: var(--green-d); transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--white);
+      border-top: 1.5px solid var(--rule-strong);
+      padding: 60px 0 28px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid var(--rule-strong);
+      margin-bottom: 24px;
+    }
+
+    .footer-logo { height: 26px; width: auto; display: block; margin-bottom: 16px; }
+
+    .footer-tagline {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .footer-group-note {
+      font-size: 11.5px;
+      color: var(--muted-light);
+    }
+
+    .flabel {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-links a {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--green); }
+
+    .footer-address {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .footer-address a { transition: color 0.2s; }
+    .footer-address a:hover { color: var(--green); }
+
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+
+    .copy { font-size: 12px; color: var(--muted-light); }
+
+    .footer-social { display: flex; gap: 16px; }
+
+    .footer-social a {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted-light);
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--green); }
+
+    .back { font-size: 12px; color: var(--muted-light); transition: color 0.2s; }
+    .back:hover { color: var(--green); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .wrap { padding: 0 28px; }
+      .hero-inner, .about-inner, .statement,
+      .sectors-inner, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .statement { padding: 56px 40px; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 0 20px; }
+      .svc-grid, .team-grid { grid-template-columns: 1fr; }
+      .sectors-list { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      nav { display: none; }
+      .footer-top { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <img src="assets/ibccs logo.avif" alt="IBCCS TAX" class="logo-img" />
+        <nav>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#sectors">Sectors</a>
+          <a href="#team">Team</a>
+          <a href="#contact" class="nav-cta">Book a Call</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO — clean white typographic -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-inner">
+          <div>
+            <div class="hero-tag">Tashkent · Uzbekistan</div>
+            <h1>Turn<br>Challenges<br>into <span class="accent">Opportunities</span></h1>
+            <p class="hero-sub">We help discover the best solutions on the Uzbekistan market to open or relocate a company and handle Accounting, Legal, and Tax matters — for businesses and individuals serious about Central Asia.</p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn-primary">Book a Call →</a>
+              <a href="#contact" class="btn-ghost">Get Price Estimate</a>
+            </div>
+          </div>
+          <div class="hero-services">
+            <div class="hero-services-header">Our Services</div>
+            <div class="hs-item">
+              <span class="hs-name">Market Entry</span>
+              <span class="hs-arrow">→</span>
+            </div>
+            <div class="hs-item">
+              <span class="hs-name">Finance &amp; Taxation</span>
+              <span class="hs-arrow">→</span>
+            </div>
+            <div class="hs-item">
+              <span class="hs-name">Business Registration</span>
+              <span class="hs-arrow">→</span>
+            </div>
+            <div class="hs-item">
+              <span class="hs-name">Legal Services</span>
+              <span class="hs-arrow">→</span>
+            </div>
+            <div class="hs-item">
+              <span class="hs-name">Expat Services</span>
+              <span class="hs-arrow">→</span>
+            </div>
+            <div class="hs-item">
+              <span class="hs-name">Startup Services</span>
+              <span class="hs-arrow">→</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+
+      <!-- ABOUT — image used here, as a proper split -->
+      <section class="about" id="about">
+        <div class="about-inner">
+          <div class="about-img-wrap">
+            <img src="assets/tashkent.png" alt="Tashkent, Uzbekistan" class="about-img" />
+          </div>
+          <div class="about-content">
+            <div class="section-tag">About Us</div>
+            <h2 class="section-h">Company Registration, Tax &amp; Legal Services in Uzbekistan</h2>
+            <div class="about-body">
+              <p>Services provided by our firm are at the <strong>highest level of expertise, security, and confidentiality.</strong> Every client is unique — this is why we also offer flexibility when doing business so that our clients can receive services designed according to their needs.</p>
+              <p>IBCCS TAX Uzbekistan is proud to be a part of <strong>IBCCS TAX Group</strong> with headquarter in Cyprus and offices in Georgia and UAE. These locations allow us to serve our clients and partners more effectively.</p>
+              <p>At IBCCS TAX Uzbekistan, we help discover Uzbekistan's extraordinary potential as one of Central Asia's most dynamic and fast-growing markets.</p>
+            </div>
+            <a href="#services" class="text-link">Explore Services →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="services" id="services">
+        <div class="section-tag">What We Do</div>
+        <h2 class="section-h">Tax &amp; Legal Advisory in Uzbekistan</h2>
+        <p class="section-sub">As a consulting firm in Uzbekistan, we have the skills and expertise to handle a wide range of services both to individuals and businesses.</p>
+        <div class="svc-grid">
+          <div class="svc-card">
+            <div class="svc-num">01</div>
+            <h3 class="svc-name">Market Entry in Uzbekistan</h3>
+            <p class="svc-desc">Combining legal, tax, and business advisory expertise, we turn international expansion plans into a commercially viable market entry strategy for Uzbekistan.</p>
+          </div>
+          <div class="svc-card">
+            <div class="svc-num">02</div>
+            <h3 class="svc-name">Finance &amp; Taxation in Uzbekistan</h3>
+            <p class="svc-desc">By entrusting your finances, taxes, and accounting to professionals, you can devote your time solely to the development of your business. Full-scope compliance, strategic planning, and financial reporting.</p>
+          </div>
+          <div class="svc-card">
+            <div class="svc-num">03</div>
+            <h3 class="svc-name">Business Registration in Uzbekistan</h3>
+            <p class="svc-desc">We assist international and local clients with business registration in Uzbekistan and provide legal &amp; tax advisory. End-to-end entity formation — structured correctly from day one.</p>
+          </div>
+          <div class="svc-card">
+            <div class="svc-num">04</div>
+            <h3 class="svc-name">Legal Services in Uzbekistan</h3>
+            <p class="svc-desc">Our legal professionals experienced in Uzbek law provide guidance and help navigate any legal complexities. Corporate law, contract structuring, regulatory compliance, and transactional counsel.</p>
+          </div>
+          <div class="svc-card">
+            <div class="svc-num">05</div>
+            <h3 class="svc-name">Expat Services in Uzbekistan</h3>
+            <p class="svc-desc">We offer a wide range of support for individuals and families moving to Uzbekistan. From residency and visa matters to banking and relocation assistance — making your transition seamless.</p>
+          </div>
+          <div class="svc-card">
+            <div class="svc-num">06</div>
+            <h3 class="svc-name">Startup Services in Uzbekistan</h3>
+            <p class="svc-desc">We act as a strategic partner for early-stage and scaling startups, combining legal, tax, accounting, and advisory expertise. From inception through investment readiness.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATEMENT -->
+      <section class="statement">
+        <div class="statement-left">
+          <h2>IBCCS TAX Uzbekistan —<br><span class="accent">Your Gateway to Growth</span></h2>
+          <p>Every client is unique — this is why we offer flexibility and services designed according to your needs.</p>
+        </div>
+        <div class="statement-right">
+          <p>Uzbekistan is one of the <strong>fastest-evolving markets in Central Asia.</strong> Backed by ongoing economic reforms, investor-friendly policies, Special Economic Zones, and a growing domestic market — the opportunity is real.</p>
+          <p>But so is the complexity. Local tax, legal, and regulatory frameworks require practical, on-the-ground knowledge to navigate correctly. We exist to turn that complexity into your competitive advantage.</p>
+          <p>We begin with your objectives and long-term plans — then shape the legal, tax, and operational structure accordingly.</p>
+        </div>
+      </section>
+
+      <!-- SECTORS -->
+      <section class="sectors" id="sectors">
+        <div class="section-tag">Industry Expertise</div>
+        <h2 class="section-h">Tax &amp; Accounting Solutions Across Key Sectors</h2>
+        <div class="sectors-inner">
+          <p class="sectors-desc">IBCCS TAX Uzbekistan's expertise covers a variety of industries. We provide accounting and taxation services for a wide range of business types — our team of tax experts and accountants is equipped to provide tailored, professional solutions in any of these sectors.</p>
+          <div class="sectors-list">
+            <div class="sector-chip">Software Development &amp; IT</div>
+            <div class="sector-chip">Manufacturing &amp; Production</div>
+            <div class="sector-chip">Logistics &amp; Trading</div>
+            <div class="sector-chip">Development &amp; Construction</div>
+            <div class="sector-chip">Renewable Energy</div>
+            <div class="sector-chip">Tourism &amp; Hospitality</div>
+            <div class="sector-chip">Agriculture &amp; Agribusiness</div>
+            <div class="sector-chip">Media &amp; Entertainment</div>
+            <div class="sector-chip">Gas, Oil &amp; Mining</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEAM -->
+      <section class="team" id="team">
+        <div class="section-tag">Our Team</div>
+        <h2 class="section-h">Tax Advisors, Accountants &amp; Legal Experts</h2>
+        <p class="section-sub">Our team has a wealth of knowledge and experience in all aspects of international taxation, accounting, and legal services. We take the time to understand your goals and develop the best course of action to meet them.</p>
+        <div class="team-grid">
+          <div class="member-card">
+            <img src="assets/Katy Image .jpeg" alt="Ketevan Aghoshashvili" class="member-photo" />
+            <div class="member-info">
+              <div class="member-name">Ketevan Aghoshashvili</div>
+              <div class="member-role">Executive Director · Partner</div>
+              <a href="#" class="member-linkedin">LinkedIn →</a>
+            </div>
+          </div>
+          <div class="member-card">
+            <img src="assets/Irakli Image.jpeg" alt="Irakli Arjevanidze" class="member-photo" />
+            <div class="member-info">
+              <div class="member-name">Irakli Arjevanidze</div>
+              <div class="member-role">Co-Founder</div>
+              <a href="#" class="member-linkedin">LinkedIn →</a>
+            </div>
+          </div>
+          <div class="member-card">
+            <img src="assets/Farrukh image.jpg" alt="Farrukh Kholmatov" class="member-photo" />
+            <div class="member-info">
+              <div class="member-name">Farrukh Kholmatov</div>
+              <div class="member-role">Account Manager</div>
+              <a href="#" class="member-linkedin">LinkedIn →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="contact" id="contact">
+        <div class="section-tag">Get in Touch</div>
+        <h2 class="section-h">Tell Us About Your Needs</h2>
+        <div class="contact-inner">
+          <div class="contact-panel">
+            <h3>We love working individually<br>with <span class="accent">new clients.</span></h3>
+            <p>We love working individually with new clients and listening about the challenges they are facing. Provide a few details below and we will be happy to assist you.</p>
+            <div class="contact-details">
+              <div>
+                <div class="cdetail-label">Office</div>
+                <div class="cdetail-val">64a Labzak Street, Tashkent, Uzbekistan</div>
+              </div>
+              <div>
+                <div class="cdetail-label">Email</div>
+                <div class="cdetail-val">helloUzbekistan@ibccs.tax</div>
+              </div>
+              <div>
+                <div class="cdetail-label">Part of IBCCS TAX Group</div>
+                <div class="cdetail-val">Cyprus · Georgia · UAE · Uzbekistan</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-panel">
+            <h3>Send Us a Message</h3>
+            <form class="form" onsubmit="return false;">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Name</label>
+                  <input type="text" class="form-input" placeholder="Your name" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-input" placeholder="your@email.com" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">I'm Interested In</label>
+                <select class="form-select">
+                  <option value="" disabled selected>Choose a service</option>
+                  <option>Finance &amp; Taxation</option>
+                  <option>Business Registration</option>
+                  <option>Legal Services</option>
+                  <option>Expat Services</option>
+                  <option>Startup Services</option>
+                  <option>Market Entry</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea class="form-textarea" placeholder="Tell us about your situation or question…"></textarea>
+              </div>
+              <button type="submit" class="form-submit">Submit →</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <img src="assets/ibccs logo.avif" alt="IBCCS TAX" class="footer-logo" />
+          <p class="footer-tagline">Tax, legal, and business advisory for companies and individuals operating in Uzbekistan.</p>
+          <p class="footer-group-note">Part of IBCCS TAX Group — Cyprus · Georgia · UAE · Uzbekistan</p>
+        </div>
+        <div>
+          <div class="flabel">Services</div>
+          <ul class="footer-links">
+            <li><a href="#">Market Entry</a></li>
+            <li><a href="#">Finance &amp; Taxation</a></li>
+            <li><a href="#">Business Registration</a></li>
+            <li><a href="#">Legal Services</a></li>
+            <li><a href="#">Expat Services</a></li>
+            <li><a href="#">Startup Services</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="flabel">Company</div>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">IBCCS Group</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="flabel">Tashkent Office</div>
+          <div class="footer-address">
+            64a Labzak Street<br>
+            Labzak MFY, Shayxontohur District<br>
+            Tashkent, Uzbekistan<br><br>
+            <a href="mailto:helloUzbekistan@ibccs.tax">helloUzbekistan@ibccs.tax</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="copy">© 2026 IBCCS TAX Uzbekistan. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="#">LinkedIn</a>
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+        </div>
+        <a href="index.html" class="back">← All Concepts</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -6,48 +6,52 @@
   <title>IBCCS TAX Uzbekistan — Tax, Legal & Business Advisory</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green: #5EA397;
+      --green:   #5EA397;
       --green-d: #4a8880;
       --green-l: #EEF7F5;
-      --green-m: #D0EAE6;
-      --charcoal: #1E1E1C;
-      --mid: #4A4845;
-      --muted: rgba(30,30,28,0.48);
-      --muted-light: rgba(30,30,28,0.32);
-      --rule: rgba(30,30,28,0.08);
-      --rule-strong: rgba(30,30,28,0.14);
-      --bg: #F5F5F2;
-      --white: #FFFFFF;
+      --navy:    #0C1220;
+      --navy2:   #111929;
+      --cream:   #F7F5F0;
+      --white:   #FFFFFF;
+      --charcoal:#2F2E2C;
+      --rule-l:  rgba(47,46,44,0.12);
+      --rule-d:  rgba(255,255,255,0.08);
+      --muted-l: rgba(47,46,44,0.52);
+      --muted-d: rgba(240,236,228,0.48);
+      --text-d:  #EDE9E0;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
+      background: var(--white);
       color: var(--charcoal);
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 15px;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
 
     .wrap {
-      max-width: 1180px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 48px;
+      padding: 0 56px;
     }
 
-    /* ── HEADER ── */
+    /* ─────────────────────────────
+       HEADER — white, sticky
+    ───────────────────────────── */
     header {
       background: var(--white);
-      border-bottom: 1px solid var(--rule-strong);
+      border-bottom: 1px solid var(--rule-l);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -57,691 +61,853 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 70px;
+      padding: 20px 0 0;
     }
 
-    .logo-img { height: 28px; width: auto; }
+    .logo-img { height: 26px; width: auto; }
 
-    nav { display: flex; gap: 32px; align-items: center; }
+    nav {
+      display: flex;
+      gap: 36px;
+      border-top: 1px solid var(--rule-l);
+      padding: 12px 0;
+      margin-top: 16px;
+      align-items: center;
+    }
 
     nav a {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--muted);
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: var(--muted-l);
       transition: color 0.2s;
     }
 
     nav a:hover { color: var(--charcoal); }
 
     .nav-cta {
+      margin-left: auto;
       background: var(--green);
       color: #fff !important;
-      padding: 10px 24px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 13px;
+      padding: 8px 22px;
+      font-size: 10.5px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.14em !important;
       transition: background 0.2s !important;
     }
 
     .nav-cta:hover { background: var(--green-d) !important; }
 
-    /* ── HERO — Clean typographic, no image background ── */
+    /* ─────────────────────────────
+       HERO — dark navy, full photo
+    ───────────────────────────── */
     .hero {
-      background: var(--white);
-      border-bottom: 1px solid var(--rule-strong);
-      padding: 96px 0 88px;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--green-l);
-      border: 1px solid var(--green-m);
-      color: var(--green);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 100px;
-      margin-bottom: 28px;
-    }
-
-    .hero-tag::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: var(--green);
-      border-radius: 50%;
-    }
-
-    .hero h1 {
-      font-size: clamp(44px, 5.5vw, 68px);
-      font-weight: 800;
-      line-height: 1.06;
-      color: var(--charcoal);
-      letter-spacing: -2px;
-      margin-bottom: 24px;
-    }
-
-    .hero h1 .accent { color: var(--green); }
-
-    .hero-sub {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.78;
-      margin-bottom: 40px;
-    }
-
-    .hero-actions {
+      position: relative;
+      min-height: 70vh;
       display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .btn-primary {
-      background: var(--green);
-      color: #fff;
-      padding: 13px 28px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 700;
-      transition: background 0.2s, transform 0.15s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-primary:hover { background: var(--green-d); transform: translateY(-1px); }
-
-    .btn-ghost {
-      color: var(--charcoal);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 12px 22px;
-      border-radius: 10px;
-      border: 1.5px solid var(--rule-strong);
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .btn-ghost:hover { border-color: var(--green); color: var(--green); }
-
-    /* Hero right — service list */
-    .hero-services {
-      background: var(--bg);
-      border: 1.5px solid var(--rule-strong);
-      border-radius: 16px;
+      align-items: flex-end;
       overflow: hidden;
     }
 
-    .hero-services-header {
-      padding: 20px 28px;
-      border-bottom: 1.5px solid var(--rule-strong);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted-light);
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/tashkent.png');
+      background-size: cover;
+      background-position: center 28%;
     }
 
-    .hs-item {
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        110deg,
+        rgba(12,18,32,0.76) 0%,
+        rgba(12,18,32,0.55) 50%,
+        rgba(12,18,32,0.22) 100%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(12,18,32,0.06) 0%,
+        rgba(12,18,32,0.72) 80%,
+        rgba(12,18,32,0.94) 100%
+      );
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      padding: 60px 0 64px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 80px;
+      align-items: flex-end;
+    }
+
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      animation: fadeUp 0.8s ease 0.1s both;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--green);
+    }
+
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(44px, 5.5vw, 72px);
+      line-height: 1.05;
+      color: var(--text-d);
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s ease 0.22s both;
+    }
+
+    .hero-h1 em { font-style: italic; color: var(--green); }
+
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(237,233,224,0.62);
+      line-height: 1.75;
+      max-width: 500px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s ease 0.36s both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      animation: fadeUp 0.8s ease 0.48s both;
+    }
+
+    .btn-green {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      transition: background 0.2s;
+    }
+
+    .btn-green:hover { background: var(--green-d); }
+
+    .btn-ghost-d {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(237,233,224,0.2);
+      color: rgba(237,233,224,0.55);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-ghost-d:hover { border-color: var(--green); color: var(--green); }
+
+    /* Hero aside */
+    .hero-aside {
+      border-left: 1px solid rgba(255,255,255,0.1);
+      padding-left: 44px;
+      animation: fadeUp 0.8s ease 0.3s both;
+    }
+
+    .aside-label {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(237,233,224,0.28);
+      margin-bottom: 24px;
+    }
+
+    .aside-item {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 18px 28px;
-      border-bottom: 1px solid var(--rule);
-      transition: background 0.18s;
     }
 
-    .hs-item:last-child { border-bottom: none; }
-
-    .hs-item:hover { background: var(--white); }
-
-    .hs-name {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--charcoal);
+    .aside-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(237,233,224,0.75);
     }
 
-    .hs-arrow {
-      font-size: 14px;
+    .aside-arrow {
       color: var(--green);
       opacity: 0;
       transform: translateX(-4px);
-      transition: opacity 0.18s, transform 0.18s;
+      transition: opacity 0.2s, transform 0.2s;
     }
 
-    .hs-item:hover .hs-arrow { opacity: 1; transform: translateX(0); }
+    .aside-item:hover .aside-arrow { opacity: 1; transform: translateX(0); }
+    .aside-item:hover .aside-name { color: var(--text-d); }
 
-    /* ── ABOUT ── */
+    /* ─────────────────────────────
+       ABOUT — light cream
+    ───────────────────────────── */
     .about {
-      padding: 96px 0;
+      background: var(--cream);
+      padding: 100px 0;
     }
 
     .about-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 72px;
+      gap: 96px;
       align-items: center;
     }
 
-    .about-img-wrap {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      aspect-ratio: 4 / 3.2;
+    .about-left {}
+
+    .sec-label {
+      font-size: 9.5px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
     }
 
-    .about-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 32%;
-      display: block;
-    }
-
-    /* Subtle green accent strip on image */
-    .about-img-wrap::after {
+    .sec-label::before {
       content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 100%; height: 4px;
+      width: 20px; height: 1px;
       background: var(--green);
     }
 
-    .about-content {}
-
-    .section-tag {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 12px;
+    .about-h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(34px, 3.6vw, 50px);
+      line-height: 1.15;
+      margin-bottom: 36px;
     }
 
-    .section-h {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -0.8px;
-      line-height: 1.12;
-      margin-bottom: 24px;
-    }
+    .about-h2 em { font-style: italic; color: var(--green); }
 
     .about-body p {
       font-size: 15px;
       font-weight: 300;
-      color: var(--muted);
-      line-height: 1.88;
-      margin-bottom: 16px;
+      color: var(--muted-l);
+      line-height: 1.9;
+      margin-bottom: 18px;
     }
 
     .about-body p:last-child { margin-bottom: 0; }
+    .about-body strong { font-weight: 500; color: var(--charcoal); }
 
-    .about-body strong { font-weight: 600; color: var(--charcoal); }
-
-    .text-link {
+    .link-arrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       color: var(--green);
-      font-size: 13px;
-      font-weight: 700;
-      margin-top: 24px;
-      transition: gap 0.2s;
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-top: 28px;
+      border-bottom: 1px solid rgba(94,163,151,0.35);
+      padding-bottom: 3px;
+      transition: gap 0.2s, border-color 0.2s;
     }
 
-    .text-link:hover { gap: 14px; }
+    .link-arrow:hover { gap: 14px; border-color: var(--green); }
 
-    /* ── SERVICES ── */
+    .about-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 3.5;
+    }
+
+    .about-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+
+    /* Green accent strip */
+    .about-img-wrap::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0;
+      width: 4px; height: 100%;
+      background: var(--green);
+      z-index: 1;
+    }
+
+    /* ─────────────────────────────
+       SERVICES — dark navy
+    ───────────────────────────── */
     .services {
-      padding: 0 0 96px;
+      background: var(--navy);
+      padding: 100px 0;
     }
 
-    .section-sub {
-      font-size: 15px;
+    .services-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 64px;
+      align-items: end;
+    }
+
+    .services-h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(34px, 3.6vw, 50px);
+      line-height: 1.15;
+      color: var(--text-d);
+    }
+
+    .services-h2 em { font-style: italic; color: var(--green); }
+
+    .services-sub {
+      font-size: 14.5px;
       font-weight: 300;
-      color: var(--muted);
-      margin-bottom: 48px;
-      max-width: 540px;
+      color: var(--muted-d);
+      line-height: 1.85;
     }
 
     .svc-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 1px;
+      background: rgba(255,255,255,0.07);
     }
 
     .svc-card {
-      background: var(--white);
-      border: 1.5px solid var(--rule-strong);
-      border-radius: 14px;
-      padding: 36px 30px 40px;
-      transition: border-color 0.22s, box-shadow 0.22s, transform 0.22s;
+      background: var(--navy);
+      padding: 44px 36px 48px;
+      transition: background 0.3s;
+      position: relative;
     }
 
-    .svc-card:hover {
-      border-color: var(--green-m);
-      box-shadow: 0 12px 48px rgba(94,163,151,0.10);
-      transform: translateY(-3px);
+    .svc-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--green);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
     }
+
+    .svc-card:hover { background: var(--navy2); }
+    .svc-card:hover::after { transform: scaleX(1); }
 
     .svc-num {
       font-size: 10px;
-      font-weight: 700;
       letter-spacing: 0.2em;
       color: var(--green);
-      margin-bottom: 20px;
+      margin-bottom: 22px;
+      opacity: 0.7;
     }
 
     .svc-name {
-      font-size: 17px;
-      font-weight: 800;
-      margin-bottom: 12px;
-      letter-spacing: -0.2px;
-      line-height: 1.3;
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.25;
+      color: var(--text-d);
+      margin-bottom: 16px;
     }
+
+    .svc-name em { font-style: italic; color: var(--green); }
 
     .svc-desc {
       font-size: 13.5px;
       font-weight: 300;
-      color: var(--muted);
-      line-height: 1.8;
+      color: var(--muted-d);
+      line-height: 1.82;
     }
 
-    /* ── STATEMENT ── */
+    /* ─────────────────────────────
+       STATEMENT — brand green
+    ───────────────────────────── */
     .statement {
-      background: var(--charcoal);
-      border-radius: 20px;
-      padding: 80px 72px;
-      margin: 0 0 96px;
+      background-image:
+        linear-gradient(rgba(15,48,38,0.84), rgba(15,48,38,0.84)),
+        url('assets/tashkent.png');
+      background-size: cover;
+      background-position: center 30%;
+      padding: 112px 0;
+    }
+
+    .statement-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 72px;
+      gap: 96px;
       align-items: center;
     }
 
-    .statement-left h2 {
-      font-size: clamp(30px, 3.8vw, 46px);
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: -1px;
+    .statement-quote {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(40px, 5vw, 64px);
       line-height: 1.1;
-      margin-bottom: 16px;
+      color: #fff;
     }
 
-    .statement-left h2 .accent { color: var(--green); }
+    .statement-quote em {
+      font-style: italic;
+      opacity: 0.75;
+    }
 
-    .statement-left p {
-      font-size: 14.5px;
+    .statement-divider {
+      width: 48px; height: 2px;
+      background: rgba(255,255,255,0.4);
+      margin: 32px 0;
+    }
+
+    .statement-tagline {
+      font-size: 14px;
       font-weight: 300;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.75;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.04em;
     }
 
     .statement-right p {
       font-size: 15px;
       font-weight: 300;
-      color: rgba(255,255,255,0.58);
-      line-height: 1.88;
-      margin-bottom: 16px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.9;
+      margin-bottom: 20px;
     }
 
     .statement-right p:last-child { margin-bottom: 0; }
-    .statement-right strong { font-weight: 600; color: rgba(255,255,255,0.85); }
+    .statement-right strong { font-weight: 500; color: #fff; }
 
-    /* ── SECTORS ── */
-    .sectors { padding: 0 0 96px; }
-
-    .sectors-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: start;
-      margin-top: 40px;
+    /* ─────────────────────────────
+       SECTORS — white
+    ───────────────────────────── */
+    .sectors {
+      background: var(--white);
+      padding: 100px 0;
     }
 
+    .sectors-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 52px;
+      align-items: end;
+    }
+
+    .sectors-h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(32px, 3.2vw, 46px);
+      line-height: 1.15;
+    }
+
+    .sectors-h2 em { font-style: italic; color: var(--green); }
+
     .sectors-desc {
-      font-size: 15px;
+      font-size: 14.5px;
       font-weight: 300;
-      color: var(--muted);
+      color: var(--muted-l);
       line-height: 1.85;
     }
 
-    .sectors-list {
+    .sectors-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    .sector-chip {
+    .sector-item {
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--rule-l);
+      border-right: 1px solid var(--rule-l);
+      font-size: 13.5px;
+      font-weight: 400;
+      color: rgba(47,46,44,0.55);
       display: flex;
       align-items: center;
-      gap: 10px;
-      background: var(--white);
-      border: 1.5px solid var(--rule-strong);
-      border-radius: 8px;
-      padding: 11px 16px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--muted);
-      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      gap: 12px;
+      transition: color 0.2s, background 0.2s;
     }
 
-    .sector-chip:hover {
-      border-color: var(--green-m);
-      color: var(--green-d);
+    .sector-item:nth-child(3n) { border-right: none; }
+
+    .sector-item:hover {
+      color: var(--green);
       background: var(--green-l);
     }
 
-    .sector-chip::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: var(--green);
+    .sector-dot {
+      width: 5px; height: 5px;
       border-radius: 50%;
-      opacity: 0.45;
+      background: var(--green);
+      opacity: 0.4;
       flex-shrink: 0;
+      transition: opacity 0.2s;
     }
 
-    /* ── TEAM ── */
-    .team { padding: 0 0 96px; }
+    .sector-item:hover .sector-dot { opacity: 1; }
+
+    /* ─────────────────────────────
+       TEAM — dark navy
+    ───────────────────────────── */
+    .team {
+      background: var(--navy);
+      padding: 100px 0;
+    }
+
+    .team-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 52px;
+      align-items: end;
+    }
+
+    .team-h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(32px, 3.2vw, 46px);
+      line-height: 1.15;
+      color: var(--text-d);
+    }
+
+    .team-sub {
+      font-size: 14.5px;
+      font-weight: 300;
+      color: var(--muted-d);
+      line-height: 1.85;
+    }
 
     .team-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 44px;
+      gap: 1px;
+      background: rgba(255,255,255,0.07);
     }
 
-    .member-card {
-      background: var(--white);
-      border: 1.5px solid var(--rule-strong);
-      border-radius: 16px;
+    .member {
+      background: var(--navy);
       overflow: hidden;
-      transition: box-shadow 0.25s, transform 0.25s;
+      transition: background 0.3s;
     }
 
-    .member-card:hover {
-      box-shadow: 0 12px 48px rgba(30,30,28,0.08);
-      transform: translateY(-4px);
-    }
+    .member:hover { background: var(--navy2); }
 
     .member-photo {
       width: 100%;
-      aspect-ratio: 3 / 3.2;
+      aspect-ratio: 3 / 3.4;
       object-fit: cover;
       object-position: center top;
       display: block;
-      filter: grayscale(12%);
+      filter: grayscale(20%);
       transition: filter 0.4s;
     }
 
-    .member-card:hover .member-photo { filter: grayscale(0%); }
+    .member:hover .member-photo { filter: grayscale(0%); }
 
     .member-info {
-      padding: 22px 26px 28px;
-      border-top: 1.5px solid var(--rule-strong);
+      padding: 28px 32px 36px;
+      border-top: 1px solid rgba(255,255,255,0.07);
     }
 
     .member-name {
-      font-size: 17px;
-      font-weight: 800;
-      margin-bottom: 4px;
-      letter-spacing: -0.2px;
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-weight: 500;
+      color: var(--text-d);
+      margin-bottom: 6px;
     }
 
     .member-role {
-      font-size: 12.5px;
-      color: var(--muted-light);
-      font-weight: 400;
-      margin-bottom: 14px;
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--muted-d);
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
     }
 
     .member-linkedin {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 500;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--green-l);
-      color: var(--green);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 6px;
-      transition: background 0.2s;
+      opacity: 0.7;
+      transition: opacity 0.2s;
     }
 
-    .member-linkedin:hover { background: var(--green-m); }
+    .member-linkedin:hover { opacity: 1; }
 
-    /* ── CONTACT ── */
-    .contact { padding: 0 0 96px; }
+    /* ─────────────────────────────
+       CONTACT — cream / light
+    ───────────────────────────── */
+    .contact {
+      background: var(--cream);
+      padding: 112px 0;
+    }
 
     .contact-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: 96px;
       align-items: start;
-      margin-top: 40px;
     }
 
-    .contact-panel {
-      background: var(--white);
-      border: 1.5px solid var(--rule-strong);
-      border-radius: 16px;
-      padding: 44px 40px;
+    .contact-h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(42px, 5vw, 66px);
+      line-height: 1.05;
+      margin-bottom: 24px;
     }
 
-    .contact-panel h3 {
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 14px;
-    }
+    .contact-h2 em { font-style: italic; color: var(--green); }
 
-    .contact-panel h3 .accent { color: var(--green); }
-
-    .contact-panel p {
-      font-size: 14.5px;
+    .contact-text {
+      font-size: 15px;
       font-weight: 300;
-      color: var(--muted);
-      line-height: 1.82;
-      margin-bottom: 32px;
+      color: var(--muted-l);
+      line-height: 1.88;
+      margin-bottom: 44px;
     }
 
-    .contact-details { display: flex; flex-direction: column; gap: 18px; }
+    .contact-details { display: flex; flex-direction: column; gap: 22px; }
 
     .cdetail-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
+      font-size: 9.5px;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--green);
-      margin-bottom: 3px;
+      font-weight: 500;
+      margin-bottom: 4px;
     }
 
     .cdetail-val {
-      font-size: 13.5px;
-      font-weight: 400;
-      color: var(--muted);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted-l);
       line-height: 1.6;
     }
 
-    .form-panel {
-      background: var(--white);
-      border: 1.5px solid var(--rule-strong);
-      border-radius: 16px;
-      padding: 44px 40px;
-    }
-
-    .form-panel h3 {
-      font-size: 18px;
-      font-weight: 800;
-      margin-bottom: 28px;
-      letter-spacing: -0.3px;
-    }
-
-    .form { display: flex; flex-direction: column; gap: 16px; }
-
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    /* Form */
+    .form { display: flex; flex-direction: column; gap: 18px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 7px; }
 
     .form-label {
-      font-size: 10.5px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: rgba(30,30,28,0.36);
+      font-size: 9.5px;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
+      color: rgba(47,46,44,0.36);
+      font-weight: 500;
     }
 
     .form-input,
     .form-select,
     .form-textarea {
-      background: var(--bg);
-      border: 1.5px solid var(--rule-strong);
-      border-radius: 8px;
+      background: var(--white);
+      border: 1px solid rgba(47,46,44,0.16);
       color: var(--charcoal);
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       font-size: 14px;
-      font-weight: 400;
-      padding: 12px 15px;
+      font-weight: 300;
+      padding: 13px 16px;
       outline: none;
-      transition: border-color 0.2s, background 0.2s;
+      transition: border-color 0.2s;
       width: 100%;
     }
 
     .form-select { appearance: none; cursor: pointer; }
-    .form-textarea { resize: vertical; min-height: 104px; }
+    .form-textarea { resize: vertical; min-height: 112px; }
 
     .form-input:focus,
     .form-select:focus,
-    .form-textarea:focus { border-color: var(--green); background: #fff; }
+    .form-textarea:focus { border-color: var(--green); }
 
     .form-input::placeholder,
-    .form-textarea::placeholder { color: rgba(30,30,28,0.2); }
+    .form-textarea::placeholder { color: rgba(47,46,44,0.2); }
 
     .form-submit {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: var(--green);
+      gap: 10px;
+      background: var(--charcoal);
       color: #fff;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 13px 28px;
-      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 14px 32px;
       border: none;
       cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
+      transition: background 0.2s;
       align-self: flex-start;
     }
 
-    .form-submit:hover { background: var(--green-d); transform: translateY(-1px); }
+    .form-submit:hover { background: var(--green); }
 
-    /* ── FOOTER ── */
+    /* ─────────────────────────────
+       FOOTER — dark navy
+    ───────────────────────────── */
     footer {
-      background: var(--white);
-      border-top: 1.5px solid var(--rule-strong);
+      background: var(--navy2);
       padding: 60px 0 28px;
     }
 
     .footer-top {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
+      gap: 56px;
       padding-bottom: 44px;
-      border-bottom: 1px solid var(--rule-strong);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
       margin-bottom: 24px;
     }
 
-    .footer-logo { height: 26px; width: auto; display: block; margin-bottom: 16px; }
+    .footer-logo {
+      height: 24px;
+      filter: brightness(0) invert(1);
+      opacity: 0.7;
+      display: block;
+      margin-bottom: 16px;
+    }
 
     .footer-tagline {
       font-size: 13px;
       font-weight: 300;
-      color: var(--muted);
-      line-height: 1.7;
+      color: rgba(237,233,224,0.3);
+      line-height: 1.72;
       margin-bottom: 14px;
     }
 
     .footer-group-note {
-      font-size: 11.5px;
-      color: var(--muted-light);
+      font-size: 11px;
+      color: rgba(237,233,224,0.18);
+      letter-spacing: 0.04em;
     }
 
     .flabel {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
+      font-size: 9.5px;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
       color: var(--green);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+      opacity: 0.8;
     }
 
-    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
 
     .footer-links a {
-      font-size: 13.5px;
-      font-weight: 400;
-      color: var(--muted);
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(237,233,224,0.35);
       transition: color 0.2s;
     }
 
-    .footer-links a:hover { color: var(--green); }
+    .footer-links a:hover { color: var(--text-d); }
 
     .footer-address {
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 300;
-      color: var(--muted);
+      color: rgba(237,233,224,0.35);
       line-height: 1.75;
     }
 
     .footer-address a { transition: color 0.2s; }
     .footer-address a:hover { color: var(--green); }
 
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-    .copy { font-size: 12px; color: var(--muted-light); }
+    .copy { font-size: 11px; color: rgba(237,233,224,0.18); letter-spacing: 0.04em; }
 
-    .footer-social { display: flex; gap: 16px; }
+    .footer-social { display: flex; gap: 20px; }
 
     .footer-social a {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted-light);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(237,233,224,0.22);
+      font-weight: 500;
       transition: color 0.2s;
     }
 
     .footer-social a:hover { color: var(--green); }
 
-    .back { font-size: 12px; color: var(--muted-light); transition: color 0.2s; }
+    .back {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(237,233,224,0.22);
+      transition: color 0.2s;
+    }
+
     .back:hover { color: var(--green); }
 
-    /* ── RESPONSIVE ── */
+    /* ─────────────────────────────
+       ANIMATION
+    ───────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─────────────────────────────
+       RESPONSIVE
+    ───────────────────────────── */
     @media (max-width: 960px) {
-      .wrap { padding: 0 28px; }
-      .hero-inner, .about-inner, .statement,
-      .sectors-inner, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
-      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .wrap { padding: 0 32px; }
+      .hero-inner,
+      .about-inner,
+      .statement-inner,
+      .sectors-top,
+      .services-top,
+      .team-top,
+      .contact-inner { grid-template-columns: 1fr; gap: 44px; }
+      .hero-aside { display: none; }
+      .svc-grid,
       .team-grid { grid-template-columns: 1fr 1fr; }
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
-      .statement { padding: 56px 40px; }
+      .sectors-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .statement { padding: 80px 0; }
+      .about-img-wrap { order: -1; }
     }
 
     @media (max-width: 640px) {
-      .wrap { padding: 0 20px; }
-      .svc-grid, .team-grid { grid-template-columns: 1fr; }
-      .sectors-list { grid-template-columns: 1fr; }
+      .wrap { padding: 0 22px; }
+      .svc-grid,
+      .team-grid,
+      .sectors-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       nav { display: none; }
       .footer-top { grid-template-columns: 1fr; }
@@ -755,163 +921,191 @@
     <div class="wrap">
       <div class="topbar">
         <img src="assets/ibccs logo.avif" alt="IBCCS TAX" class="logo-img" />
-        <nav>
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#sectors">Sectors</a>
-          <a href="#team">Team</a>
-          <a href="#contact" class="nav-cta">Book a Call</a>
-        </nav>
       </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#sectors">Sectors</a>
+        <a href="#team">Team</a>
+        <a href="#contact" class="nav-cta">Book a Call</a>
+      </nav>
     </div>
   </header>
 
   <main>
 
-    <!-- HERO — clean white typographic -->
+    <!-- ① HERO — dark navy -->
     <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
       <div class="wrap">
         <div class="hero-inner">
           <div>
-            <div class="hero-tag">Tashkent · Uzbekistan</div>
-            <h1>Turn<br>Challenges<br>into <span class="accent">Opportunities</span></h1>
-            <p class="hero-sub">We help discover the best solutions on the Uzbekistan market to open or relocate a company and handle Accounting, Legal, and Tax matters — for businesses and individuals serious about Central Asia.</p>
-            <div class="hero-actions">
-              <a href="#contact" class="btn-primary">Book a Call →</a>
-              <a href="#contact" class="btn-ghost">Get Price Estimate</a>
+            <div class="hero-eyebrow">Tashkent · Uzbekistan</div>
+            <h1 class="hero-h1">
+              Turn<br>
+              Challenges<br>
+              into <em>Opportunities</em>
+            </h1>
+            <p class="hero-sub">We help discover the best solutions on the Uzbekistan market to open or relocate a company and handle Accounting, Legal, and Tax matters — for businesses serious about Central Asia.</p>
+            <div class="hero-btns">
+              <a href="#contact" class="btn-green">Book a Call →</a>
+              <a href="#contact" class="btn-ghost-d">Get Price Estimate</a>
             </div>
           </div>
-          <div class="hero-services">
-            <div class="hero-services-header">Our Services</div>
-            <div class="hs-item">
-              <span class="hs-name">Market Entry</span>
-              <span class="hs-arrow">→</span>
+          <div class="hero-aside">
+            <div class="aside-label">Our Services</div>
+            <div class="aside-item">
+              <span class="aside-name">Market Entry</span>
+              <span class="aside-arrow">→</span>
             </div>
-            <div class="hs-item">
-              <span class="hs-name">Finance &amp; Taxation</span>
-              <span class="hs-arrow">→</span>
+            <div class="aside-item">
+              <span class="aside-name">Finance &amp; Taxation</span>
+              <span class="aside-arrow">→</span>
             </div>
-            <div class="hs-item">
-              <span class="hs-name">Business Registration</span>
-              <span class="hs-arrow">→</span>
+            <div class="aside-item">
+              <span class="aside-name">Business Registration</span>
+              <span class="aside-arrow">→</span>
             </div>
-            <div class="hs-item">
-              <span class="hs-name">Legal Services</span>
-              <span class="hs-arrow">→</span>
+            <div class="aside-item">
+              <span class="aside-name">Legal Services</span>
+              <span class="aside-arrow">→</span>
             </div>
-            <div class="hs-item">
-              <span class="hs-name">Expat Services</span>
-              <span class="hs-arrow">→</span>
+            <div class="aside-item">
+              <span class="aside-name">Expat Services</span>
+              <span class="aside-arrow">→</span>
             </div>
-            <div class="hs-item">
-              <span class="hs-name">Startup Services</span>
-              <span class="hs-arrow">→</span>
+            <div class="aside-item">
+              <span class="aside-name">Startup Services</span>
+              <span class="aside-arrow">→</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="wrap">
-
-      <!-- ABOUT — image used here, as a proper split -->
-      <section class="about" id="about">
+    <!-- ② ABOUT — cream/light -->
+    <section class="about" id="about">
+      <div class="wrap">
         <div class="about-inner">
-          <div class="about-img-wrap">
-            <img src="assets/tashkent.png" alt="Tashkent, Uzbekistan" class="about-img" />
-          </div>
-          <div class="about-content">
-            <div class="section-tag">About Us</div>
-            <h2 class="section-h">Company Registration, Tax &amp; Legal Services in Uzbekistan</h2>
+          <div class="about-left">
+            <div class="sec-label">About Us</div>
+            <h2 class="about-h2">Company Registration, Tax &amp; <em>Legal Services</em> in Uzbekistan</h2>
             <div class="about-body">
               <p>Services provided by our firm are at the <strong>highest level of expertise, security, and confidentiality.</strong> Every client is unique — this is why we also offer flexibility when doing business so that our clients can receive services designed according to their needs.</p>
               <p>IBCCS TAX Uzbekistan is proud to be a part of <strong>IBCCS TAX Group</strong> with headquarter in Cyprus and offices in Georgia and UAE. These locations allow us to serve our clients and partners more effectively.</p>
               <p>At IBCCS TAX Uzbekistan, we help discover Uzbekistan's extraordinary potential as one of Central Asia's most dynamic and fast-growing markets.</p>
             </div>
-            <a href="#services" class="text-link">Explore Services →</a>
+            <a href="#services" class="link-arrow">Explore Services →</a>
+          </div>
+          <div class="about-img-wrap">
+            <img src="assets/tashkent.png" alt="Tashkent, Uzbekistan" class="about-img" />
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- SERVICES -->
-      <section class="services" id="services">
-        <div class="section-tag">What We Do</div>
-        <h2 class="section-h">Tax &amp; Legal Advisory in Uzbekistan</h2>
-        <p class="section-sub">As a consulting firm in Uzbekistan, we have the skills and expertise to handle a wide range of services both to individuals and businesses.</p>
+    <!-- ③ SERVICES — dark navy -->
+    <section class="services" id="services">
+      <div class="wrap">
+        <div class="services-top">
+          <div>
+            <div class="sec-label" style="color:var(--green);">What We Do</div>
+            <h2 class="services-h2">Tax &amp; Legal Advisory<br>in <em>Uzbekistan</em></h2>
+          </div>
+          <p class="services-sub">As a consulting firm in Uzbekistan, we have the skills and expertise to handle a wide range of services both to individuals and businesses.</p>
+        </div>
         <div class="svc-grid">
           <div class="svc-card">
             <div class="svc-num">01</div>
-            <h3 class="svc-name">Market Entry in Uzbekistan</h3>
-            <p class="svc-desc">Combining legal, tax, and business advisory expertise, we turn international expansion plans into a commercially viable market entry strategy for Uzbekistan.</p>
+            <h3 class="svc-name">Market <em>Entry</em></h3>
+            <p class="svc-desc">Combining legal, tax, and business advisory expertise, we turn international expansion plans into a commercially viable market entry strategy tailored to Uzbekistan.</p>
           </div>
           <div class="svc-card">
             <div class="svc-num">02</div>
-            <h3 class="svc-name">Finance &amp; Taxation in Uzbekistan</h3>
+            <h3 class="svc-name">Finance &amp; <em>Taxation</em></h3>
             <p class="svc-desc">By entrusting your finances, taxes, and accounting to professionals, you can devote your time solely to the development of your business. Full-scope compliance, strategic planning, and financial reporting.</p>
           </div>
           <div class="svc-card">
             <div class="svc-num">03</div>
-            <h3 class="svc-name">Business Registration in Uzbekistan</h3>
+            <h3 class="svc-name">Business <em>Registration</em></h3>
             <p class="svc-desc">We assist international and local clients with business registration in Uzbekistan and provide legal &amp; tax advisory. End-to-end entity formation — structured correctly from day one.</p>
           </div>
           <div class="svc-card">
             <div class="svc-num">04</div>
-            <h3 class="svc-name">Legal Services in Uzbekistan</h3>
-            <p class="svc-desc">Our legal professionals experienced in Uzbek law provide guidance and help navigate any legal complexities. Corporate law, contract structuring, regulatory compliance, and transactional counsel.</p>
+            <h3 class="svc-name">Legal <em>Services</em></h3>
+            <p class="svc-desc">Our legal professionals experienced in the laws of Uzbekistan provide guidance and help navigate any legal complexities. Corporate law, contract structuring, and transactional counsel.</p>
           </div>
           <div class="svc-card">
             <div class="svc-num">05</div>
-            <h3 class="svc-name">Expat Services in Uzbekistan</h3>
+            <h3 class="svc-name">Expat <em>Services</em></h3>
             <p class="svc-desc">We offer a wide range of support for individuals and families moving to Uzbekistan. From residency and visa matters to banking and relocation assistance — making your transition seamless.</p>
           </div>
           <div class="svc-card">
             <div class="svc-num">06</div>
-            <h3 class="svc-name">Startup Services in Uzbekistan</h3>
+            <h3 class="svc-name">Startup <em>Services</em></h3>
             <p class="svc-desc">We act as a strategic partner for early-stage and scaling startups, combining legal, tax, accounting, and advisory expertise. From inception through investment readiness.</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- STATEMENT -->
-      <section class="statement">
-        <div class="statement-left">
-          <h2>IBCCS TAX Uzbekistan —<br><span class="accent">Your Gateway to Growth</span></h2>
-          <p>Every client is unique — this is why we offer flexibility and services designed according to your needs.</p>
-        </div>
-        <div class="statement-right">
-          <p>Uzbekistan is one of the <strong>fastest-evolving markets in Central Asia.</strong> Backed by ongoing economic reforms, investor-friendly policies, Special Economic Zones, and a growing domestic market — the opportunity is real.</p>
-          <p>But so is the complexity. Local tax, legal, and regulatory frameworks require practical, on-the-ground knowledge to navigate correctly. We exist to turn that complexity into your competitive advantage.</p>
-          <p>We begin with your objectives and long-term plans — then shape the legal, tax, and operational structure accordingly.</p>
-        </div>
-      </section>
-
-      <!-- SECTORS -->
-      <section class="sectors" id="sectors">
-        <div class="section-tag">Industry Expertise</div>
-        <h2 class="section-h">Tax &amp; Accounting Solutions Across Key Sectors</h2>
-        <div class="sectors-inner">
-          <p class="sectors-desc">IBCCS TAX Uzbekistan's expertise covers a variety of industries. We provide accounting and taxation services for a wide range of business types — our team of tax experts and accountants is equipped to provide tailored, professional solutions in any of these sectors.</p>
-          <div class="sectors-list">
-            <div class="sector-chip">Software Development &amp; IT</div>
-            <div class="sector-chip">Manufacturing &amp; Production</div>
-            <div class="sector-chip">Logistics &amp; Trading</div>
-            <div class="sector-chip">Development &amp; Construction</div>
-            <div class="sector-chip">Renewable Energy</div>
-            <div class="sector-chip">Tourism &amp; Hospitality</div>
-            <div class="sector-chip">Agriculture &amp; Agribusiness</div>
-            <div class="sector-chip">Media &amp; Entertainment</div>
-            <div class="sector-chip">Gas, Oil &amp; Mining</div>
+    <!-- ④ STATEMENT — brand green -->
+    <section class="statement">
+      <div class="wrap">
+        <div class="statement-inner">
+          <div>
+            <div class="statement-quote">
+              IBCCS TAX<br>Uzbekistan<br>— <em>Your Gateway<br>to Growth</em>
+            </div>
+            <div class="statement-divider"></div>
+            <div class="statement-tagline">Every client is unique. Every solution is precise.</div>
+          </div>
+          <div class="statement-right">
+            <p>Uzbekistan is one of the <strong>fastest-evolving markets in Central Asia.</strong> Backed by ongoing economic reforms, investor-friendly policies, Special Economic Zones, and a growing domestic market — the opportunity is real.</p>
+            <p>But so is the complexity. Local tax, legal, and regulatory frameworks require practical, on-the-ground knowledge to navigate correctly. IBCCS TAX Uzbekistan exists to turn that complexity into your competitive advantage.</p>
+            <p>We begin with your objectives, business model, and long-term plans — then shape the legal, tax, and operational structure accordingly. The result: advice that is not only compliant on paper, but workable in practice and aligned with growth.</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- TEAM -->
-      <section class="team" id="team">
-        <div class="section-tag">Our Team</div>
-        <h2 class="section-h">Tax Advisors, Accountants &amp; Legal Experts</h2>
-        <p class="section-sub">Our team has a wealth of knowledge and experience in all aspects of international taxation, accounting, and legal services. We take the time to understand your goals and develop the best course of action to meet them.</p>
+    <!-- ⑤ SECTORS — white -->
+    <section class="sectors" id="sectors">
+      <div class="wrap">
+        <div class="sectors-top">
+          <div>
+            <div class="sec-label">Industry Expertise</div>
+            <h2 class="sectors-h2">Tax &amp; Accounting Solutions<br>Across <em>Key Sectors</em></h2>
+          </div>
+          <p class="sectors-desc">IBCCS TAX Uzbekistan's expertise covers a variety of industries. Our team of tax experts and accountants is equipped to provide tailored, professional solutions for businesses in any of these sectors.</p>
+        </div>
+        <div class="sectors-grid">
+          <div class="sector-item"><span class="sector-dot"></span>Software Development &amp; IT</div>
+          <div class="sector-item"><span class="sector-dot"></span>Manufacturing &amp; Production</div>
+          <div class="sector-item"><span class="sector-dot"></span>Logistics &amp; Trading</div>
+          <div class="sector-item"><span class="sector-dot"></span>Development &amp; Construction</div>
+          <div class="sector-item"><span class="sector-dot"></span>Renewable Energy</div>
+          <div class="sector-item"><span class="sector-dot"></span>Tourism &amp; Hospitality</div>
+          <div class="sector-item"><span class="sector-dot"></span>Agriculture &amp; Agribusiness</div>
+          <div class="sector-item"><span class="sector-dot"></span>Media &amp; Entertainment</div>
+          <div class="sector-item"><span class="sector-dot"></span>Gas, Oil &amp; Mining</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑥ TEAM — dark navy -->
+    <section class="team" id="team">
+      <div class="wrap">
+        <div class="team-top">
+          <div>
+            <div class="sec-label" style="color:var(--green);">Our Team</div>
+            <h2 class="team-h2">Tax Advisors, Accountants<br>&amp; Legal Experts</h2>
+          </div>
+          <p class="team-sub">Our team has a wealth of knowledge and experience in all aspects of international taxation, accounting, and legal services. We take the time to understand your goals and develop the best course of action to meet them.</p>
+        </div>
         <div class="team-grid">
-          <div class="member-card">
+          <div class="member">
             <img src="assets/Katy Image .jpeg" alt="Ketevan Aghoshashvili" class="member-photo" />
             <div class="member-info">
               <div class="member-name">Ketevan Aghoshashvili</div>
@@ -919,7 +1113,7 @@
               <a href="#" class="member-linkedin">LinkedIn →</a>
             </div>
           </div>
-          <div class="member-card">
+          <div class="member">
             <img src="assets/Irakli Image.jpeg" alt="Irakli Arjevanidze" class="member-photo" />
             <div class="member-info">
               <div class="member-name">Irakli Arjevanidze</div>
@@ -927,7 +1121,7 @@
               <a href="#" class="member-linkedin">LinkedIn →</a>
             </div>
           </div>
-          <div class="member-card">
+          <div class="member">
             <img src="assets/Farrukh image.jpg" alt="Farrukh Kholmatov" class="member-photo" />
             <div class="member-info">
               <div class="member-name">Farrukh Kholmatov</div>
@@ -936,16 +1130,17 @@
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- CONTACT -->
-      <section class="contact" id="contact">
-        <div class="section-tag">Get in Touch</div>
-        <h2 class="section-h">Tell Us About Your Needs</h2>
+    <!-- ⑦ CONTACT — cream/light -->
+    <section class="contact" id="contact">
+      <div class="wrap">
         <div class="contact-inner">
-          <div class="contact-panel">
-            <h3>We love working individually<br>with <span class="accent">new clients.</span></h3>
-            <p>We love working individually with new clients and listening about the challenges they are facing. Provide a few details below and we will be happy to assist you.</p>
+          <div>
+            <div class="sec-label">Get in Touch</div>
+            <h2 class="contact-h2">Tell Us About<br>Your <em>Needs.</em></h2>
+            <p class="contact-text">We love working individually with new clients and listening about the challenges they are facing. Provide a few details and we will be happy to assist you.</p>
             <div class="contact-details">
               <div>
                 <div class="cdetail-label">Office</div>
@@ -956,51 +1151,48 @@
                 <div class="cdetail-val">helloUzbekistan@ibccs.tax</div>
               </div>
               <div>
-                <div class="cdetail-label">Part of IBCCS TAX Group</div>
-                <div class="cdetail-val">Cyprus · Georgia · UAE · Uzbekistan</div>
+                <div class="cdetail-label">Part of</div>
+                <div class="cdetail-val">IBCCS TAX Group · Cyprus · Georgia · UAE · Uzbekistan</div>
               </div>
             </div>
           </div>
-          <div class="form-panel">
-            <h3>Send Us a Message</h3>
-            <form class="form" onsubmit="return false;">
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label">Name</label>
-                  <input type="text" class="form-input" placeholder="Your name" />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Email</label>
-                  <input type="email" class="form-input" placeholder="your@email.com" />
-                </div>
+          <form class="form" onsubmit="return false;">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-input" placeholder="Your name" />
               </div>
               <div class="form-group">
-                <label class="form-label">I'm Interested In</label>
-                <select class="form-select">
-                  <option value="" disabled selected>Choose a service</option>
-                  <option>Finance &amp; Taxation</option>
-                  <option>Business Registration</option>
-                  <option>Legal Services</option>
-                  <option>Expat Services</option>
-                  <option>Startup Services</option>
-                  <option>Market Entry</option>
-                  <option>Other</option>
-                </select>
+                <label class="form-label">Email</label>
+                <input type="email" class="form-input" placeholder="your@email.com" />
               </div>
-              <div class="form-group">
-                <label class="form-label">Message</label>
-                <textarea class="form-textarea" placeholder="Tell us about your situation or question…"></textarea>
-              </div>
-              <button type="submit" class="form-submit">Submit →</button>
-            </form>
-          </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">I'm Interested In</label>
+              <select class="form-select">
+                <option value="" disabled selected>Choose a service</option>
+                <option>Finance &amp; Taxation</option>
+                <option>Business Registration</option>
+                <option>Legal Services</option>
+                <option>Expat Services</option>
+                <option>Startup Services</option>
+                <option>Market Entry</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Message</label>
+              <textarea class="form-textarea" placeholder="Tell us about your situation or question…"></textarea>
+            </div>
+            <button type="submit" class="form-submit">Submit →</button>
+          </form>
         </div>
-      </section>
+      </div>
+    </section>
 
-    </div>
   </main>
 
-  <!-- FOOTER -->
+  <!-- ⑧ FOOTER — dark navy -->
   <footer>
     <div class="wrap">
       <div class="footer-top">
