@@ -906,6 +906,10 @@
       overflow-wrap: anywhere;
     }
 
+    .copy-line {
+      display: block;
+    }
+
     .footer-social { display: flex; gap: 20px; }
 
     .footer-social a {
@@ -1739,9 +1743,9 @@
       </div>
       <div class="footer-bottom">
         <span class="copy">
-          <span data-lang="en" class="lang-inline is-visible">© 2026 IBCCS TAX Uzbekistan. All rights reserved.</span>
-          <span data-lang="ru" class="lang-inline">© 2026 IBCCS TAX Uzbekistan. Все права защищены.</span>
-          <span data-lang="zh" class="lang-inline">© 2026 IBCCS TAX Uzbekistan。保留所有权利。</span>
+          <span data-lang="en" class="lang-block is-visible"><span class="copy-line">© 2026 IBCCS TAX Uzbekistan.</span><span class="copy-line">All rights reserved.</span></span>
+          <span data-lang="ru" class="lang-block"><span class="copy-line">© 2026 IBCCS TAX Uzbekistan.</span><span class="copy-line">Все права защищены.</span></span>
+          <span data-lang="zh" class="lang-block"><span class="copy-line">© 2026 IBCCS TAX Uzbekistan。</span><span class="copy-line">保留所有权利。</span></span>
         </span>
         <div class="footer-social">
           <a href="#"><span data-lang="en" class="lang-inline is-visible">LinkedIn</span><span data-lang="ru" class="lang-inline">LinkedIn</span><span data-lang="zh" class="lang-inline">LinkedIn</span></a>
