@@ -3,103 +3,1777 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IBCCS TAX Uzbekistan — Select Concept</title>
+  <title>IBCCS TAX Uzbekistan — Tax, Legal & Business Advisory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --g: #5EA397;
+      --g-soft: rgba(94,163,151,0.18);
+      --navy: #0C1220;
+      --navy2: #111929;
+      --navy3: #162032;
+      --border: rgba(255,255,255,0.07);
+      --border-strong: rgba(255,255,255,0.13);
+      --text: #FFFFFF;
+      --muted: rgba(255,255,255,0.90);
+      --muted2: rgba(255,255,255,0.78);
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      background: #0a0a0a;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    .choices {
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 52px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(12,18,32,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .logo-img {
+      height: 28px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    nav a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    .nav-btn {
+      border: 1px solid var(--g);
+      color: var(--g) !important;
+      padding: 8px 22px;
+      letter-spacing: 0.16em !important;
+      transition: background 0.2s, color 0.2s !important;
+    }
+
+    .nav-btn:hover {
+      background: var(--g) !important;
+      color: var(--navy) !important;
+    }
+
+    .lang-toggle {
+      display: flex;
+      align-items: center;
       gap: 2px;
-      align-items: stretch;
+      margin-left: 8px;
+      border-left: 1px solid var(--border-strong);
+      padding-left: 24px;
     }
 
-    .choice {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      width: 180px;
-      height: 220px;
-      border: 1px solid rgba(255,255,255,0.08);
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s ease;
+    .lang-btn {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      background: none;
+      border: none;
       cursor: pointer;
+      padding: 4px 7px;
+      transition: color 0.2s;
     }
 
-    .choice::before {
-      content: '';
+    .lang-btn:hover { color: var(--text); }
+
+    .lang-btn.active {
+      color: var(--g);
+    }
+
+    [data-lang]:not(.lang-btn) { display: none; }
+    [data-lang]:not(.lang-btn).is-visible { display: initial; }
+    [data-lang]:not(.lang-btn).is-visible.lang-block { display: block; }
+    [data-lang]:not(.lang-btn).is-visible.lang-inline { display: inline; }
+    [data-lang]:not(.lang-btn).is-visible.lang-inline-block { display: inline-block; }
+    [data-lang]:not(.lang-btn).is-visible.lang-flex { display: flex; }
+
+    .lang-sep {
+      color: var(--border-strong);
+      font-size: 11px;
+      user-select: none;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      padding-top: 68px;
+    }
+
+    .hero-bg {
       position: absolute;
       inset: 0;
-      background: rgba(94, 163, 151, 0.0);
-      transition: background 0.4s ease;
+      background-image: url('assets/tashkent1.jpg');
+      background-size: cover;
+      background-position: center 28%;
     }
 
-    .choice:hover::before {
-      background: rgba(94, 163, 151, 0.06);
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(12,18,32,0.74) 0%,
+        rgba(12,18,32,0.52) 45%,
+        rgba(12,18,32,0.22) 100%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(12,18,32,0.06) 0%,
+        rgba(12,18,32,0.68) 75%,
+        rgba(12,18,32,0.92) 100%
+      );
     }
 
-    .choice:hover {
-      border-color: rgba(94, 163, 151, 0.4);
+    /* Per-section photo backgrounds */
+    .bg-tashkent2 {
+      background-image:
+        linear-gradient(rgba(12,18,32,0.76), rgba(12,18,32,0.76)),
+        url('assets/tashkent2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
 
-    .num {
-      font-size: 72px;
-      font-weight: 200;
-      color: rgba(255,255,255,0.85);
-      letter-spacing: -2px;
-      line-height: 1;
-      transition: color 0.3s ease;
+    .bg-tashkent3 {
+      background-image:
+        linear-gradient(rgba(12,18,32,0.72), rgba(12,18,32,0.72)),
+        url('assets/tashkent3.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .bg-tashkent4 {
+      background-image:
+        linear-gradient(rgba(12,18,32,0.80), rgba(12,18,32,0.80)),
+        url('assets/tashkent4.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .bg-tashkent5 {
+      background-image:
+        linear-gradient(rgba(12,18,32,0.78), rgba(12,18,32,0.78)),
+        url('assets/tashkent5.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .bg-tashkent6 {
+      background-image:
+        linear-gradient(rgba(12,18,32,0.74), rgba(12,18,32,0.74)),
+        url('assets/tashkent6.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .hero-inner {
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      padding: 75px 0 72px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 80px;
+      align-items: flex-end;
     }
 
-    .choice:hover .num {
-      color: #5EA397;
-    }
-
-    .label {
-      margin-top: 18px;
-      font-size: 9px;
-      letter-spacing: 0.25em;
+    .hero-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.36em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.22);
-      transition: color 0.3s ease;
+      color: var(--g);
+      margin-bottom: 21px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      animation: fadeUp 0.8s ease 0.1s both;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--g);
+    }
+
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(48px, 6vw, 84px);
+      line-height: 0.95;
+      letter-spacing: -1px;
+      color: var(--text);
+      margin-bottom: 33px;
+      animation: fadeUp 0.8s ease 0.22s both;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--g);
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.92);
+      line-height: 1.8;
+      max-width: 520px;
+      margin-bottom: 33px;
+      animation: fadeUp 0.8s ease 0.36s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s ease 0.48s both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--g);
+      color: var(--navy);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 15px 36px;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: #75b9af; }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--border-strong);
+      color: var(--muted);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 15px 30px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--g); color: var(--g); }
+
+    /* Hero aside panel */
+    .hero-aside {
+      border-left: 1px solid var(--border-strong);
+      padding-left: 48px;
+      animation: fadeUp 0.8s ease 0.3s both;
+    }
+
+    .aside-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--muted2);
+      margin-bottom: 28px;
+    }
+
+    .aside-item {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .aside-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .aside-arrow {
+      color: var(--g);
+      font-size: 16px;
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .aside-item:hover .aside-arrow { opacity: 1; transform: translateX(0); }
+
+    /* ── INTRO ── */
+    .intro {
+      padding: 100px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .intro-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: start;
+    }
+
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: var(--g);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .intro-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(36px, 3.8vw, 52px);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .intro-heading em { font-style: italic; font-weight: 400; color: var(--g); }
+
+    .intro-body p {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    .intro-body p:last-child { margin-bottom: 0; }
+
+    .intro-body strong { color: #FFFFFF; font-weight: 600; }
+
+    .text-link {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--g);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 28px;
+      transition: gap 0.2s;
+    }
+
+    .text-link:hover { gap: 14px; }
+
+    /* ── SERVICES ── */
+    .services {
+      padding: 80px 0 100px;
+      border-top: 1px solid var(--border);
+    }
+
+    .services-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 64px;
+    }
+
+    .services-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(34px, 3.5vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .services-heading em { font-style: italic; font-weight: 400; color: var(--g); }
+
+    .services-sub {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.85;
+      padding-top: 6px;
+    }
+
+    .svc-list { display: flex; flex-direction: column; }
+
+    .svc-row {
+      display: grid;
+      grid-template-columns: 56px 1fr 1fr;
+      gap: 48px;
+      padding: 44px 0;
+      border-top: 1px solid var(--border);
+      align-items: start;
+      transition: background 0.3s;
       position: relative;
-      z-index: 1;
     }
 
-    .choice:hover .label {
-      color: rgba(94, 163, 151, 0.7);
+    .svc-row::before {
+      content: '';
+      position: absolute;
+      left: -52px; right: -52px;
+      top: 0; bottom: 0;
+      background: rgba(94,163,151,0);
+      transition: background 0.35s;
     }
 
-    .divider {
-      width: 1px;
-      background: rgba(255,255,255,0.06);
-      align-self: stretch;
+    .svc-row:hover::before { background: rgba(94,163,151,0.025); }
+
+    .svc-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 400;
+      color: rgba(94,163,151,0.22);
+      line-height: 1;
+      transition: color 0.3s;
+    }
+
+    .svc-row:hover .svc-num { color: rgba(94,163,151,0.45); }
+
+    .svc-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.2;
+      padding-top: 4px;
+    }
+
+    .svc-name em { font-style: italic; font-weight: 400; color: var(--g); }
+
+    .svc-desc {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.82;
+      padding-top: 6px;
+    }
+
+    /* ── STATEMENT ── */
+    .statement {
+      border-top: 1px solid var(--border);
+      padding: 112px 0;
+    }
+
+    .statement-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: center;
+    }
+
+    .statement-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .statement-quote em { font-style: italic; font-weight: 400; color: var(--g); }
+
+    .statement-right p {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    .statement-right p:last-child { margin-bottom: 0; }
+    .statement-right strong { color: #FFFFFF; font-weight: 600; }
+
+    /* ── SECTORS ── */
+    .sectors {
+      padding: 96px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .sectors-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 52px;
+    }
+
+    .sectors-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(32px, 3.2vw, 44px);
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+    }
+
+    .sectors-heading em { font-style: italic; font-weight: 400; color: var(--g); }
+
+    .sectors-desc {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.85;
+      padding-top: 4px;
+    }
+
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .sector-item {
+      background: rgba(12,18,32,0.70);
+      padding: 24px 28px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.88);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .sector-item::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border: 1px solid var(--g);
+      flex-shrink: 0;
+      opacity: 0.5;
+      transition: opacity 0.2s, background 0.2s;
+    }
+
+    .sector-item:hover {
+      background: rgba(12,18,32,0.85);
+      color: #FFFFFF;
+    }
+
+    .sector-item:hover::before { opacity: 1; background: var(--g); }
+
+    /* ── TEAM ── */
+    .team {
+      padding: 96px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .team-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 52px;
+      align-items: end;
+    }
+
+    .team-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(32px, 3.2vw, 44px);
+      line-height: 1.15;
+    }
+
+    .team-sub {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .member {
+      background: var(--navy);
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .member:hover { background: var(--navy2); }
+
+    .member-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4.2;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(25%) sepia(10%);
+      transition: filter 0.45s;
+    }
+
+    .member:hover .member-photo { filter: grayscale(0%) sepia(0%); }
+
+    .member-info {
+      padding: 28px 32px 36px;
+      border-top: 1px solid var(--border);
+    }
+
+    .member-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .member-role {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--muted2);
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    .member-linkedin {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--g);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+
+    .member-linkedin:hover { opacity: 1; }
+
+    /* ── CONTACT ── */
+    .contact {
+      padding: 112px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: start;
+    }
+
+    .contact-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(44px, 5.5vw, 72px);
+      line-height: 1.0;
+      letter-spacing: -0.5px;
+      margin-bottom: 28px;
+    }
+
+    .contact-heading em { font-style: italic; font-weight: 400; color: var(--g); }
+
+    .contact-text {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.88;
+      margin-bottom: 44px;
+    }
+
+    .contact-details { display: flex; flex-direction: column; gap: 22px; }
+
+    .cdetail-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--g);
+      margin-bottom: 5px;
+    }
+
+    .cdetail-val {
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.90);
+      line-height: 1.6;
+    }
+
+    .form { display: flex; flex-direction: column; gap: 18px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .form-group { display: flex; flex-direction: column; gap: 7px; }
+
+    .form-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted2);
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      background: var(--navy2);
+      border: 1px solid var(--border-strong);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      padding: 13px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .form-select { appearance: none; cursor: pointer; }
+
+    .form-textarea { resize: vertical; min-height: 110px; }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus { border-color: var(--g); }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: var(--muted2); }
+
+    .form-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--g);
+      color: var(--navy);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 14px 34px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      align-self: flex-start;
+    }
+
+    .form-submit:hover { background: #75b9af; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--navy2);
+      padding: 56px 0 28px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 56px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+
+    .footer-logo {
+      height: 24px;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted2);
+      line-height: 1.72;
+      margin-bottom: 14px;
+    }
+
+    .footer-group-note {
+      font-size: 10.5px;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.04em;
+    }
+
+    .flabel {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--g);
+      margin-bottom: 18px;
+      opacity: 0.85;
+    }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+
+    .footer-links a {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted2);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-address {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted2);
+      line-height: 1.75;
+    }
+
+    .footer-address a { transition: color 0.2s; }
+    .footer-address a:hover { color: var(--g); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .copy {
+      font-size: 11px;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-social { display: flex; gap: 20px; }
+
+    .footer-social a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--g); }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 200;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 1.5px;
+      background: var(--text);
+      transition: transform 0.3s, opacity 0.3s, width 0.3s;
+      transform-origin: center;
+    }
+
+    .hamburger span:nth-child(2) { width: 70%; margin-left: auto; }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 150;
+      background: rgba(11,17,30,0.98);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      justify-content: center;
+      padding: 100px 40px 60px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 52px;
+    }
+
+    .mobile-nav-links a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 10vw, 52px);
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      transition: color 0.2s;
+    }
+
+    .mobile-nav-links a:hover { color: var(--g); }
+
+    .mobile-nav-links .mobile-btn {
+      display: inline-block;
+      margin-top: 16px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--g);
+      padding: 14px 32px;
+      width: fit-content;
+    }
+
+    .mobile-lang {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+    }
+
+    .mobile-lang .lang-btn {
+      font-size: 13px;
+      padding: 6px 10px;
+    }
+
+    .mobile-lang .lang-sep {
+      font-size: 13px;
+    }
+
+    /* ── ANIMATION ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .wrap { padding: 0 28px; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-aside { display: none; }
+      .intro-inner, .statement-inner, .contact-inner,
+      .services-top, .sectors-top, .team-top { grid-template-columns: 1fr; gap: 36px; }
+      .svc-row { grid-template-columns: 48px 1fr; }
+      .svc-desc { display: none; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .sectors-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 0 20px; }
+      .team-grid, .sectors-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+      .footer-top { grid-template-columns: 1fr; }
+      .bg-tashkent2,
+      .bg-tashkent3,
+      .bg-tashkent4,
+      .bg-tashkent5,
+      .bg-tashkent6 { background-attachment: scroll; }
     }
   </style>
 </head>
 <body>
-  <div class="choices">
-    <a class="choice" href="v1.html">
-      <span class="num">1</span>
-      <span class="label">Dark</span>
-    </a>
-    <a class="choice" href="v2.html">
-      <span class="num">2</span>
-      <span class="label">Mixed</span>
-    </a>
+
+  <!-- HEADER -->
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <img src="assets/ibccs logo.png" alt="IBCCS TAX" class="logo-img" />
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav>
+          <a href="#services">
+            <span data-lang="en" class="lang-inline is-visible">Services</span>
+            <span data-lang="ru" class="lang-inline">Услуги</span>
+            <span data-lang="zh" class="lang-inline">服务</span>
+          </a>
+          <a href="#about">
+            <span data-lang="en" class="lang-inline is-visible">About</span>
+            <span data-lang="ru" class="lang-inline">О нас</span>
+            <span data-lang="zh" class="lang-inline">关于我们</span>
+          </a>
+          <a href="#team">
+            <span data-lang="en" class="lang-inline is-visible">Team</span>
+            <span data-lang="ru" class="lang-inline">Команда</span>
+            <span data-lang="zh" class="lang-inline">团队</span>
+          </a>
+          <a href="#contact" class="nav-btn">
+            <span data-lang="en" class="lang-inline is-visible">Book a Call</span>
+            <span data-lang="ru" class="lang-inline">Забронировать звонок</span>
+            <span data-lang="zh" class="lang-inline">预约通话</span>
+          </a>
+          <div class="lang-toggle">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="ru">RU</button>
+            <span class="lang-sep">/</span>
+            <button class="lang-btn" data-lang="zh">中文</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-nav-links">
+      <a href="#services" class="mobile-link">
+        <span data-lang="en" class="lang-inline is-visible">Services</span>
+        <span data-lang="ru" class="lang-inline">Услуги</span>
+        <span data-lang="zh" class="lang-inline">服务</span>
+      </a>
+      <a href="#about" class="mobile-link">
+        <span data-lang="en" class="lang-inline is-visible">About</span>
+        <span data-lang="ru" class="lang-inline">О нас</span>
+        <span data-lang="zh" class="lang-inline">关于我们</span>
+      </a>
+      <a href="#team" class="mobile-link">
+        <span data-lang="en" class="lang-inline is-visible">Team</span>
+        <span data-lang="ru" class="lang-inline">Команда</span>
+        <span data-lang="zh" class="lang-inline">团队</span>
+      </a>
+      <a href="#contact" class="mobile-btn mobile-link">
+        <span data-lang="en" class="lang-inline is-visible">Book a Call</span>
+        <span data-lang="ru" class="lang-inline">Забронировать звонок</span>
+        <span data-lang="zh" class="lang-inline">预约通话</span>
+      </a>
+    </div>
+    <div class="mobile-lang">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <span class="lang-sep">/</span>
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <span class="lang-sep">/</span>
+      <button class="lang-btn" data-lang="zh">中文</button>
+    </div>
   </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="wrap">
+        <div class="hero-inner">
+          <div>
+            <div class="hero-eyebrow">
+              <span data-lang="en" class="lang-inline is-visible">Tashkent · Uzbekistan</span>
+              <span data-lang="ru" class="lang-inline">Ташкент · Узбекистан</span>
+              <span data-lang="zh" class="lang-inline">塔什干 · 乌兹别克斯坦</span>
+            </div>
+            <h1 class="hero-h1">
+              <span data-lang="en" class="lang-block is-visible">
+                Turn<br>
+                Challenges<br>
+                into <em>Opportunities</em>
+              </span>
+              <span data-lang="ru" class="lang-block">
+                Превращаем<br>
+                вызовы<br>
+                в <em>возможности</em>
+              </span>
+              <span data-lang="zh" class="lang-block">
+                化解<br>
+                挑战<br>
+                为<em>机遇</em>
+              </span>
+            </h1>
+            <p class="hero-sub">
+              <span data-lang="en" class="lang-inline is-visible">We help discover the best solutions on the Uzbekistan market to open or relocate a company and handle Accounting, Legal, and Tax matters — for businesses serious about Central Asia.</span>
+              <span data-lang="ru" class="lang-inline">Мы помогаем находить оптимальные решения на рынке Узбекистана для открытия или релокации компании, а также по вопросам бухгалтерии, права и налогообложения — для бизнеса, который всерьёз рассматривает Центральную Азию.</span>
+              <span data-lang="zh" class="lang-inline">我们帮助客户在乌兹别克斯坦市场找到最佳解决方案，协助设立或迁移公司，并处理会计、法律和税务事务，适合认真布局中亚市场的企业。</span>
+            </p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn-primary">
+                <span data-lang="en" class="lang-inline is-visible">Book a Call →</span>
+                <span data-lang="ru" class="lang-inline">Забронировать звонок →</span>
+                <span data-lang="zh" class="lang-inline">预约通话 →</span>
+              </a>
+              <a href="#contact" class="btn-outline">
+                <span data-lang="en" class="lang-inline is-visible">Get Price Estimate</span>
+                <span data-lang="ru" class="lang-inline">Получить расчёт стоимости</span>
+                <span data-lang="zh" class="lang-inline">获取价格预估</span>
+              </a>
+            </div>
+          </div>
+          <div class="hero-aside">
+            <div class="aside-label">
+              <span data-lang="en" class="lang-inline is-visible">Our Services</span>
+              <span data-lang="ru" class="lang-inline">Наши услуги</span>
+              <span data-lang="zh" class="lang-inline">我们的服务</span>
+            </div>
+            <div class="aside-item">
+              <span class="aside-name">
+                <span data-lang="en" class="lang-inline is-visible">Market Entry</span>
+                <span data-lang="ru" class="lang-inline">Выход на рынок</span>
+                <span data-lang="zh" class="lang-inline">市场准入</span>
+              </span>
+              <span class="aside-arrow">→</span>
+            </div>
+            <div class="aside-item">
+              <span class="aside-name">
+                <span data-lang="en" class="lang-inline is-visible">Finance &amp; Taxation</span>
+                <span data-lang="ru" class="lang-inline">Финансы и налогообложение</span>
+                <span data-lang="zh" class="lang-inline">财务与税务</span>
+              </span>
+              <span class="aside-arrow">→</span>
+            </div>
+            <div class="aside-item">
+              <span class="aside-name">
+                <span data-lang="en" class="lang-inline is-visible">Business Registration</span>
+                <span data-lang="ru" class="lang-inline">Регистрация бизнеса</span>
+                <span data-lang="zh" class="lang-inline">公司注册</span>
+              </span>
+              <span class="aside-arrow">→</span>
+            </div>
+            <div class="aside-item">
+              <span class="aside-name">
+                <span data-lang="en" class="lang-inline is-visible">Legal Services</span>
+                <span data-lang="ru" class="lang-inline">Юридические услуги</span>
+                <span data-lang="zh" class="lang-inline">法律服务</span>
+              </span>
+              <span class="aside-arrow">→</span>
+            </div>
+            <div class="aside-item">
+              <span class="aside-name">
+                <span data-lang="en" class="lang-inline is-visible">Expat Services</span>
+                <span data-lang="ru" class="lang-inline">Услуги для экспатов</span>
+                <span data-lang="zh" class="lang-inline">外籍人士服务</span>
+              </span>
+              <span class="aside-arrow">→</span>
+            </div>
+            <div class="aside-item">
+              <span class="aside-name">
+                <span data-lang="en" class="lang-inline is-visible">Startup Services</span>
+                <span data-lang="ru" class="lang-inline">Услуги для стартапов</span>
+                <span data-lang="zh" class="lang-inline">初创企业服务</span>
+              </span>
+              <span class="aside-arrow">→</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="intro" id="about" style="background:var(--navy2);">
+      <div class="wrap">
+        <div class="intro-inner">
+          <div>
+            <div class="section-label">
+              <span data-lang="en" class="lang-inline is-visible">About Us</span>
+              <span data-lang="ru" class="lang-inline">О нас</span>
+              <span data-lang="zh" class="lang-inline">关于我们</span>
+            </div>
+            <h2 class="intro-heading">
+              <span data-lang="en" class="lang-block is-visible">
+                Company Registration,<br>
+                Tax &amp; <em>Legal Services</em><br>
+                in Uzbekistan
+              </span>
+              <span data-lang="ru" class="lang-block">
+                Регистрация компаний,<br>
+                налоговые и <em>юридические услуги</em><br>
+                в Узбекистане
+              </span>
+              <span data-lang="zh" class="lang-block">
+                乌兹别克斯坦的<br>
+                公司注册、税务与<em>法律服务</em>
+              </span>
+            </h2>
+            <a href="#services" class="text-link" style="margin-top:36px;">
+              <span data-lang="en" class="lang-inline is-visible">Explore Services →</span>
+              <span data-lang="ru" class="lang-inline">Изучить услуги →</span>
+              <span data-lang="zh" class="lang-inline">查看服务 →</span>
+            </a>
+          </div>
+          <div class="intro-body">
+            <p>
+              <span data-lang="en" class="lang-inline is-visible">Services provided by our firm are at the <strong>highest level of expertise, security, and confidentiality.</strong> Every client is unique — this is why we also offer flexibility when doing business so that our clients can receive services designed according to their needs.</span>
+              <span data-lang="ru" class="lang-inline">Услуги нашей фирмы предоставляются на <strong>самом высоком уровне экспертизы, безопасности и конфиденциальности.</strong> Каждый клиент уникален, поэтому мы предлагаем гибкий подход к сотрудничеству, чтобы услуги были адаптированы к конкретным задачам и потребностям.</span>
+              <span data-lang="zh" class="lang-inline">本所提供的服务具备<strong>最高水平的专业性、安全性与保密性。</strong>每一位客户都是独特的，因此我们在合作方式上保持灵活，为客户提供符合其实际需求的定制化服务。</span>
+            </p>
+            <p>
+              <span data-lang="en" class="lang-inline is-visible">IBCCS TAX Uzbekistan is proud to be a part of <strong>IBCCS TAX Group</strong> with headquarter in Cyprus and offices in Georgia and UAE. These locations allow us to serve our clients and partners more effectively.</span>
+              <span data-lang="ru" class="lang-inline">IBCCS TAX Uzbekistan с гордостью входит в <strong>IBCCS TAX Group</strong>, штаб-квартира которой находится на Кипре, а офисы расположены в Грузии и ОАЭ. Такое присутствие позволяет нам эффективнее обслуживать клиентов и партнёров.</span>
+              <span data-lang="zh" class="lang-inline">IBCCS TAX Uzbekistan 很荣幸成为 <strong>IBCCS TAX Group</strong> 的一部分。集团总部位于塞浦路斯，并在格鲁吉亚和阿联酋设有办公室。这一布局使我们能够更高效地服务客户与合作伙伴。</span>
+            </p>
+            <p>
+              <span data-lang="en" class="lang-inline is-visible">At IBCCS TAX Uzbekistan, we help discover Uzbekistan's extraordinary potential as one of Central Asia's most dynamic and fast-growing markets.</span>
+              <span data-lang="ru" class="lang-inline">В IBCCS TAX Uzbekistan мы помогаем раскрыть исключительный потенциал Узбекистана как одного из самых динамичных и быстрорастущих рынков Центральной Азии.</span>
+              <span data-lang="zh" class="lang-inline">在 IBCCS TAX Uzbekistan，我们帮助客户发掘乌兹别克斯坦作为中亚最具活力、增长最快市场之一的巨大潜力。</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <div class="wrap">
+        <div class="services-top">
+          <div>
+            <div class="section-label">
+              <span data-lang="en" class="lang-inline is-visible">What We Do</span>
+              <span data-lang="ru" class="lang-inline">Что мы делаем</span>
+              <span data-lang="zh" class="lang-inline">我们的服务</span>
+            </div>
+            <h2 class="services-heading">
+              <span data-lang="en" class="lang-block is-visible">Tax &amp; Legal Advisory<br>in <em>Uzbekistan</em></span>
+              <span data-lang="ru" class="lang-block">Налоговый и юридический консалтинг<br>в <em>Узбекистане</em></span>
+              <span data-lang="zh" class="lang-block">乌兹别克斯坦的<br><em>税务与法律咨询</em></span>
+            </h2>
+          </div>
+          <p class="services-sub">
+            <span data-lang="en" class="lang-inline is-visible">As a consulting firm in Uzbekistan, we have the skills and expertise to handle a wide range of services both to individuals and businesses.</span>
+            <span data-lang="ru" class="lang-inline">Как консалтинговая фирма в Узбекистане, мы обладаем опытом и компетенцией для оказания широкого спектра услуг как частным лицам, так и бизнесу.</span>
+            <span data-lang="zh" class="lang-inline">作为乌兹别克斯坦的咨询公司，我们具备为个人与企业提供广泛服务的能力与专业经验。</span>
+          </p>
+        </div>
+        <div class="svc-list">
+          <div class="svc-row">
+            <div class="svc-num">01</div>
+            <div class="svc-name">
+              <span data-lang="en" class="lang-inline is-visible">Market <em>Entry</em></span>
+              <span data-lang="ru" class="lang-inline">Выход на <em>рынок</em></span>
+              <span data-lang="zh" class="lang-inline">市场<em>准入</em></span>
+            </div>
+            <p class="svc-desc">
+              <span data-lang="en" class="lang-inline is-visible">Combining legal, tax, and business advisory expertise, we turn international expansion plans into a commercially viable market entry strategy tailored to Uzbekistan.</span>
+              <span data-lang="ru" class="lang-inline">Объединяя юридическую, налоговую и бизнес-экспертизу, мы превращаем планы международной экспансии в коммерчески жизнеспособную стратегию выхода на рынок Узбекистана.</span>
+              <span data-lang="zh" class="lang-inline">结合税务、法律与商业咨询经验，我们将国际扩张计划转化为切实可行、适合乌兹别克斯坦的市场进入战略。</span>
+            </p>
+          </div>
+          <div class="svc-row">
+            <div class="svc-num">02</div>
+            <div class="svc-name">
+              <span data-lang="en" class="lang-inline is-visible">Finance &amp; <em>Taxation</em></span>
+              <span data-lang="ru" class="lang-inline">Финансы и <em>налогообложение</em></span>
+              <span data-lang="zh" class="lang-inline">财务与<em>税务</em></span>
+            </div>
+            <p class="svc-desc">
+              <span data-lang="en" class="lang-inline is-visible">By entrusting your finances, taxes, and accounting to professionals, you can devote your time solely to the development of your business. Full-scope compliance, strategic planning, and financial reporting under Uzbekistan's regulatory framework.</span>
+              <span data-lang="ru" class="lang-inline">Передав профессионалам вопросы финансов, налогов и бухгалтерии, вы сможете сосредоточиться на развитии бизнеса. Полное сопровождение по комплаенсу, стратегическому планированию и финансовой отчётности в рамках законодательства Узбекистана.</span>
+              <span data-lang="zh" class="lang-inline">将财务、税务和会计工作交给专业团队后，您可以专注于业务发展。我们提供符合乌兹别克斯坦监管要求的全面合规、税务规划及财务报告支持。</span>
+            </p>
+          </div>
+          <div class="svc-row">
+            <div class="svc-num">03</div>
+            <div class="svc-name">
+              <span data-lang="en" class="lang-inline is-visible">Business <em>Registration</em></span>
+              <span data-lang="ru" class="lang-inline">Регистрация <em>бизнеса</em></span>
+              <span data-lang="zh" class="lang-inline">企业<em>注册</em></span>
+            </div>
+            <p class="svc-desc">
+              <span data-lang="en" class="lang-inline is-visible">We assist international and local clients with business registration in Uzbekistan and provide legal &amp; tax advisory on Uzbek regulations. End-to-end entity formation — structured correctly from day one.</span>
+              <span data-lang="ru" class="lang-inline">Мы помогаем международным и локальным клиентам с регистрацией бизнеса в Узбекистане и консультируем по юридическим и налоговым вопросам узбекского законодательства. Полное сопровождение создания компании — с правильной структурой с первого дня.</span>
+              <span data-lang="zh" class="lang-inline">我们协助本地及国际客户在乌兹别克斯坦完成公司注册，并就当地法律与税务规定提供咨询。从一开始就为企业搭建正确的设立结构。</span>
+            </p>
+          </div>
+          <div class="svc-row">
+            <div class="svc-num">04</div>
+            <div class="svc-name">
+              <span data-lang="en" class="lang-inline is-visible">Legal <em>Services</em></span>
+              <span data-lang="ru" class="lang-inline">Юридические <em>услуги</em></span>
+              <span data-lang="zh" class="lang-inline">法律<em>服务</em></span>
+            </div>
+            <p class="svc-desc">
+              <span data-lang="en" class="lang-inline is-visible">Our legal professionals experienced in the laws of Uzbekistan provide guidance and help navigate any legal complexities. Corporate law, contract structuring, regulatory compliance, and transactional counsel.</span>
+              <span data-lang="ru" class="lang-inline">Наши юристы, хорошо знакомые с законодательством Узбекистана, помогают ориентироваться в любых правовых вопросах. Корпоративное право, договорные структуры, комплаенс и сопровождение сделок.</span>
+              <span data-lang="zh" class="lang-inline">我们的法律专业人士熟悉乌兹别克斯坦法律，可协助客户应对各类法律复杂问题，包括公司法、合同架构、监管合规及交易法律支持。</span>
+            </p>
+          </div>
+          <div class="svc-row">
+            <div class="svc-num">05</div>
+            <div class="svc-name">
+              <span data-lang="en" class="lang-inline is-visible">Expat <em>Services</em></span>
+              <span data-lang="ru" class="lang-inline">Услуги для <em>экспатов</em></span>
+              <span data-lang="zh" class="lang-inline">外籍人士<em>服务</em></span>
+            </div>
+            <p class="svc-desc">
+              <span data-lang="en" class="lang-inline is-visible">We offer a wide range of support for individuals and families moving to Uzbekistan. From residency and visa matters to banking and relocation assistance — making your transition as seamless as possible.</span>
+              <span data-lang="ru" class="lang-inline">Мы предлагаем широкий спектр поддержки для частных лиц и семей, переезжающих в Узбекистан. От вопросов ВНЖ и виз до банковских и релокационных услуг — чтобы ваш переезд прошёл максимально комфортно.</span>
+              <span data-lang="zh" class="lang-inline">我们为迁往乌兹别克斯坦的个人与家庭提供广泛支持，从居留与签证事务到银行开户与搬迁协助，让过渡尽可能顺畅。</span>
+            </p>
+          </div>
+          <div class="svc-row">
+            <div class="svc-num">06</div>
+            <div class="svc-name">
+              <span data-lang="en" class="lang-inline is-visible">Startup <em>Services</em></span>
+              <span data-lang="ru" class="lang-inline">Услуги для <em>стартапов</em></span>
+              <span data-lang="zh" class="lang-inline">初创企业<em>服务</em></span>
+            </div>
+            <p class="svc-desc">
+              <span data-lang="en" class="lang-inline is-visible">We act as a strategic partner for early-stage and scaling startups, combining legal, tax, accounting, and advisory expertise. From inception through investment readiness.</span>
+              <span data-lang="ru" class="lang-inline">Мы выступаем стратегическим партнёром для стартапов на ранней стадии и в период масштабирования, объединяя юридическую, налоговую, бухгалтерскую и консультационную экспертизу — от запуска до подготовки к инвестициям.</span>
+              <span data-lang="zh" class="lang-inline">我们作为早期及成长型初创企业的战略合作伙伴，结合税务、法律、会计与咨询能力，支持企业从设立到融资准备的各个阶段。</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATEMENT -->
+    <section class="statement bg-tashkent3">
+      <div class="wrap">
+        <div class="statement-inner">
+          <div class="statement-quote">
+            <span data-lang="en" class="lang-block is-visible">
+              IBCCS TAX Uzbekistan<br>
+              — <em>Your Gateway<br>to Growth</em>
+            </span>
+            <span data-lang="ru" class="lang-block">
+              IBCCS TAX Uzbekistan<br>
+              — <em>Ваш путь<br>к росту</em>
+            </span>
+            <span data-lang="zh" class="lang-block">
+              IBCCS TAX Uzbekistan<br>
+              — <em>通往增长的<br>门户</em>
+            </span>
+          </div>
+          <div class="statement-right">
+            <p>
+              <span data-lang="en" class="lang-inline is-visible">Uzbekistan is one of the <strong>fastest-evolving markets in Central Asia.</strong> Backed by ongoing economic reforms, investor-friendly policies, Special Economic Zones, and a growing domestic market — the opportunity is real.</span>
+              <span data-lang="ru" class="lang-inline">Узбекистан — один из <strong>самых быстроразвивающихся рынков Центральной Азии.</strong> Продолжающиеся экономические реформы, благоприятная для инвесторов политика, специальные экономические зоны и растущий внутренний рынок создают реальные возможности.</span>
+              <span data-lang="zh" class="lang-inline">乌兹别克斯坦是<strong>中亚发展最快的市场之一。</strong>持续的经济改革、友好的投资政策、经济特区以及不断增长的国内市场，使其蕴藏着真实而可观的机遇。</span>
+            </p>
+            <p>
+              <span data-lang="en" class="lang-inline is-visible">But so is the complexity. Local tax, legal, and regulatory frameworks require practical, on-the-ground knowledge to navigate correctly. IBCCS TAX Uzbekistan exists to turn that complexity into your competitive advantage.</span>
+              <span data-lang="ru" class="lang-inline">Но вместе с возможностями существует и сложность. Местные налоговые, юридические и регуляторные правила требуют практического понимания и локальной экспертизы. IBCCS TAX Uzbekistan помогает превратить эту сложность в ваше конкурентное преимущество.</span>
+              <span data-lang="zh" class="lang-inline">但与此同时，复杂性同样存在。当地税务、法律和监管框架需要切实的本地经验才能正确应对。IBCCS TAX Uzbekistan 的使命，就是将这种复杂性转化为您的竞争优势。</span>
+            </p>
+            <p>
+              <span data-lang="en" class="lang-inline is-visible">We begin with your objectives, business model, and long-term plans — then shape the legal, tax, and operational structure accordingly.</span>
+              <span data-lang="ru" class="lang-inline">Мы начинаем с ваших целей, бизнес-модели и долгосрочных планов, а затем выстраиваем соответствующую юридическую, налоговую и операционную структуру.</span>
+              <span data-lang="zh" class="lang-inline">我们首先了解您的目标、商业模式和长期规划，再据此搭建合适的法律、税务与运营结构。</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTORS -->
+    <section class="sectors bg-tashkent4" id="sectors">
+      <div class="wrap">
+        <div class="sectors-top">
+          <div>
+            <div class="section-label">
+              <span data-lang="en" class="lang-inline is-visible">Industry Expertise</span>
+              <span data-lang="ru" class="lang-inline">Отраслевая экспертиза</span>
+              <span data-lang="zh" class="lang-inline">行业经验</span>
+            </div>
+            <h2 class="sectors-heading">
+              <span data-lang="en" class="lang-block is-visible">Accounting &amp; Tax Solutions<br>Across <em>Key Sectors</em></span>
+              <span data-lang="ru" class="lang-block">Бухгалтерские и налоговые решения<br>для <em>ключевых отраслей</em></span>
+              <span data-lang="zh" class="lang-block">面向<em>重点行业</em>的<br>会计与税务解决方案</span>
+            </h2>
+          </div>
+          <p class="sectors-desc">
+            <span data-lang="en" class="lang-inline is-visible">IBCCS TAX Uzbekistan's expertise covers a variety of industries. Our team of tax experts and accountants is equipped to provide tailored, professional solutions for businesses in any of these sectors.</span>
+            <span data-lang="ru" class="lang-inline">Экспертиза IBCCS TAX Uzbekistan охватывает различные отрасли. Наша команда налоговых экспертов и бухгалтеров готова предложить профессиональные и индивидуальные решения для бизнеса в любом из этих секторов.</span>
+            <span data-lang="zh" class="lang-inline">IBCCS TAX Uzbekistan 的专业能力覆盖多个行业。我们的税务专家和会计团队能够为这些领域的企业提供定制化、专业化解决方案。</span>
+          </p>
+        </div>
+        <div class="sectors-grid">
+          <div class="sector-item"><span data-lang="en" class="lang-inline is-visible">Software Development &amp; IT</span><span data-lang="ru" class="lang-inline">Разработка ПО и ИТ</span><span data-lang="zh" class="lang-inline">软件开发与信息技术</span></div>
+          <div class="sector-item"><span data-lang="en" class="lang-inline is-visible">Manufacturing &amp; Production</span><span data-lang="ru" class="lang-inline">Производство и промышленность</span><span data-lang="zh" class="lang-inline">制造与生产</span></div>
+          <div class="sector-item"><span data-lang="en" class="lang-inline is-visible">Logistics &amp; Trading</span><span data-lang="ru" class="lang-inline">Логистика и торговля</span><span data-lang="zh" class="lang-inline">物流与贸易</span></div>
+          <div class="sector-item"><span data-lang="en" class="lang-inline is-visible">Development &amp; Construction</span><span data-lang="ru" class="lang-inline">Девелопмент и строительство</span><span data-lang="zh" class="lang-inline">开发与建筑</span></div>
+          <div class="sector-item"><span data-lang="en" class="lang-inline is-visible">Renewable Energy</span><span data-lang="ru" class="lang-inline">Возобновляемая энергетика</span><span data-lang="zh" class="lang-inline">可再生能源</span></div>
+          <div class="sector-item"><span data-lang="en" class="lang-inline is-visible">Tourism &amp; Hospitality</span><span data-lang="ru" class="lang-inline">Туризм и гостеприимство</span><span data-lang="zh" class="lang-inline">旅游与酒店业</span></div>
+          <div class="sector-item"><span data-lang="en" class="lang-inline is-visible">Agriculture &amp; Agribusiness</span><span data-lang="ru" class="lang-inline">Сельское хозяйство и агробизнес</span><span data-lang="zh" class="lang-inline">农业与农商</span></div>
+          <div class="sector-item"><span data-lang="en" class="lang-inline is-visible">Media &amp; Entertainment</span><span data-lang="ru" class="lang-inline">Медиа и развлечения</span><span data-lang="zh" class="lang-inline">媒体与娱乐</span></div>
+          <div class="sector-item"><span data-lang="en" class="lang-inline is-visible">Gas, Oil &amp; Mining</span><span data-lang="ru" class="lang-inline">Газ, нефть и добыча</span><span data-lang="zh" class="lang-inline">天然气、石油与矿业</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="team" id="team" style="background:var(--navy2);">
+      <div class="wrap">
+        <div class="team-top">
+          <div>
+            <div class="section-label">
+              <span data-lang="en" class="lang-inline is-visible">Our Team</span>
+              <span data-lang="ru" class="lang-inline">Наша команда</span>
+              <span data-lang="zh" class="lang-inline">我们的团队</span>
+            </div>
+            <h2 class="team-heading">
+              <span data-lang="en" class="lang-block is-visible">Tax Advisors, Accountants<br>&amp; Legal Experts</span>
+              <span data-lang="ru" class="lang-block">Налоговые консультанты,<br>бухгалтеры и юристы</span>
+              <span data-lang="zh" class="lang-block">税务顾问、会计师<br>与法律专家</span>
+            </h2>
+          </div>
+          <p class="team-sub">
+            <span data-lang="en" class="lang-inline is-visible">Our team has a wealth of knowledge and experience in all aspects of international taxation, accounting, and legal services. We take the time to understand your goals and develop the best course of action to meet them.</span>
+            <span data-lang="ru" class="lang-inline">Наша команда обладает глубокими знаниями и опытом во всех аспектах международного налогообложения, бухгалтерии и юридических услуг. Мы внимательно изучаем ваши цели и выстраиваем наилучший план действий для их достижения.</span>
+            <span data-lang="zh" class="lang-inline">我们的团队在国际税务、会计和法律服务各方面都拥有丰富经验。我们会深入了解您的目标，并制定最适合的行动方案。</span>
+          </p>
+        </div>
+        <div class="team-grid">
+          <div class="member">
+            <img src="assets/Ketevan.png" alt="Ketevan Aghoshashvili" class="member-photo" />
+            <div class="member-info">
+              <div class="member-name">Ketevan Aghoshashvili</div>
+              <div class="member-role">
+                <span data-lang="en" class="lang-inline is-visible">Founder</span>
+                <span data-lang="ru" class="lang-inline">Основатель</span>
+                <span data-lang="zh" class="lang-inline">创始人</span>
+              </div>
+              <a href="#" class="member-linkedin">
+                <span data-lang="en" class="lang-inline is-visible">LinkedIn →</span>
+                <span data-lang="ru" class="lang-inline">LinkedIn →</span>
+                <span data-lang="zh" class="lang-inline">LinkedIn →</span>
+              </a>
+            </div>
+          </div>
+          <div class="member">
+            <img src="assets/Irakli.png" alt="Irakli Arjevanidze" class="member-photo" />
+            <div class="member-info">
+              <div class="member-name">Irakli Arjevanidze</div>
+              <div class="member-role">
+                <span data-lang="en" class="lang-inline is-visible">Director</span>
+                <span data-lang="ru" class="lang-inline">Директор</span>
+                <span data-lang="zh" class="lang-inline">总监</span>
+              </div>
+              <a href="#" class="member-linkedin">
+                <span data-lang="en" class="lang-inline is-visible">LinkedIn →</span>
+                <span data-lang="ru" class="lang-inline">LinkedIn →</span>
+                <span data-lang="zh" class="lang-inline">LinkedIn →</span>
+              </a>
+            </div>
+          </div>
+          <div class="member">
+            <img src="assets/Farukh.png" alt="Farrukh Kholmatov" class="member-photo" />
+            <div class="member-info">
+              <div class="member-name">Farrukh Kholmatov</div>
+              <div class="member-role">
+                <span data-lang="en" class="lang-inline is-visible">Account Manager</span>
+                <span data-lang="ru" class="lang-inline">Менеджер по работе с клиентами</span>
+                <span data-lang="zh" class="lang-inline">客户经理</span>
+              </div>
+              <a href="#" class="member-linkedin">
+                <span data-lang="en" class="lang-inline is-visible">LinkedIn →</span>
+                <span data-lang="ru" class="lang-inline">LinkedIn →</span>
+                <span data-lang="zh" class="lang-inline">LinkedIn →</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact bg-tashkent6" id="contact">
+      <div class="wrap">
+        <div class="contact-inner">
+          <div>
+            <div class="section-label">
+              <span data-lang="en" class="lang-inline is-visible">Get in Touch</span>
+              <span data-lang="ru" class="lang-inline">Связаться с нами</span>
+              <span data-lang="zh" class="lang-inline">联系我们</span>
+            </div>
+            <h2 class="contact-heading">
+              <span data-lang="en" class="lang-block is-visible">Tell Us<br>About Your<br><em>Needs.</em></span>
+              <span data-lang="ru" class="lang-block">Расскажите<br>нам о ваших<br><em>задачах.</em></span>
+              <span data-lang="zh" class="lang-block">告诉我们<br>您的<br><em>需求。</em></span>
+            </h2>
+            <p class="contact-text">
+              <span data-lang="en" class="lang-inline is-visible">We love working individually with new clients and listening about the challenges they are facing. Provide a few details and we will be happy to assist you.</span>
+              <span data-lang="ru" class="lang-inline">Мы ценим индивидуальную работу с новыми клиентами и внимательно изучаем стоящие перед ними задачи. Оставьте несколько деталей, и мы с удовольствием поможем вам.</span>
+              <span data-lang="zh" class="lang-inline">我们重视与每一位新客户进行一对一沟通，认真了解他们所面临的挑战。请留下几个基本信息，我们将很高兴为您提供协助。</span>
+            </p>
+            <div class="contact-details">
+              <div>
+                <div class="cdetail-label">
+                  <span data-lang="en" class="lang-inline is-visible">Office</span>
+                  <span data-lang="ru" class="lang-inline">Офис</span>
+                  <span data-lang="zh" class="lang-inline">办公室</span>
+                </div>
+                <div class="cdetail-val">64a Labzak Street, Tashkent, Uzbekistan</div>
+              </div>
+              <div>
+                <div class="cdetail-label">
+                  <span data-lang="en" class="lang-inline is-visible">Email</span>
+                  <span data-lang="ru" class="lang-inline">Эл. почта</span>
+                  <span data-lang="zh" class="lang-inline">邮箱</span>
+                </div>
+                <div class="cdetail-val">helloUzbekistan@ibccs.tax</div>
+              </div>
+              <div>
+                <div class="cdetail-label">
+                  <span data-lang="en" class="lang-inline is-visible">Part of</span>
+                  <span data-lang="ru" class="lang-inline">Часть группы</span>
+                  <span data-lang="zh" class="lang-inline">隶属于</span>
+                </div>
+                <div class="cdetail-val">IBCCS TAX Group · Cyprus · Georgia · UAE · Uzbekistan</div>
+              </div>
+            </div>
+          </div>
+          <form class="form" onsubmit="return false;">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">
+                  <span data-lang="en" class="lang-inline is-visible">Name</span>
+                  <span data-lang="ru" class="lang-inline">Имя</span>
+                  <span data-lang="zh" class="lang-inline">姓名</span>
+                </label>
+                <input type="text" class="form-input" data-ph-en="Your name" data-ph-ru="Ваше имя" data-ph-zh="您的姓名" placeholder="Your name" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">
+                  <span data-lang="en" class="lang-inline is-visible">Email</span>
+                  <span data-lang="ru" class="lang-inline">Эл. почта</span>
+                  <span data-lang="zh" class="lang-inline">邮箱</span>
+                </label>
+                <input type="email" class="form-input" data-ph-en="your@email.com" data-ph-ru="your@email.com" data-ph-zh="your@email.com" placeholder="your@email.com" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">
+                <span data-lang="en" class="lang-inline is-visible">I'm Interested In</span>
+                <span data-lang="ru" class="lang-inline">Меня интересует</span>
+                <span data-lang="zh" class="lang-inline">我感兴趣的是</span>
+              </label>
+              <select class="form-select">
+                <option value="" disabled selected data-opt-en="Choose a service" data-opt-ru="Выберите услугу" data-opt-zh="请选择服务">Choose a service</option>
+                <option data-opt-en="Finance &amp; Taxation" data-opt-ru="Финансы и налогообложение" data-opt-zh="财务与税务">Finance &amp; Taxation</option>
+                <option data-opt-en="Business Registration" data-opt-ru="Регистрация бизнеса" data-opt-zh="公司注册">Business Registration</option>
+                <option data-opt-en="Legal Services" data-opt-ru="Юридические услуги" data-opt-zh="法律服务">Legal Services</option>
+                <option data-opt-en="Expat Services" data-opt-ru="Услуги для экспатов" data-opt-zh="外籍人士服务">Expat Services</option>
+                <option data-opt-en="Startup Services" data-opt-ru="Услуги для стартапов" data-opt-zh="初创企业服务">Startup Services</option>
+                <option data-opt-en="Market Entry" data-opt-ru="Выход на рынок" data-opt-zh="市场准入">Market Entry</option>
+                <option data-opt-en="Other" data-opt-ru="Другое" data-opt-zh="其他">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">
+                <span data-lang="en" class="lang-inline is-visible">Message</span>
+                <span data-lang="ru" class="lang-inline">Сообщение</span>
+                <span data-lang="zh" class="lang-inline">留言</span>
+              </label>
+              <textarea class="form-textarea" data-ph-en="Tell us about your situation or question…" data-ph-ru="Расскажите о вашей ситуации или вопросе…" data-ph-zh="请告诉我们您的情况或问题……" placeholder="Tell us about your situation or question…"></textarea>
+            </div>
+            <button type="submit" class="form-submit">
+              <span data-lang="en" class="lang-inline is-visible">Submit →</span>
+              <span data-lang="ru" class="lang-inline">Отправить →</span>
+              <span data-lang="zh" class="lang-inline">提交 →</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <img src="assets/ibccs logo.png" alt="IBCCS TAX" class="footer-logo" />
+          <p class="footer-tagline">
+            <span data-lang="en" class="lang-inline is-visible">Tax, legal, and business advisory for companies and individuals operating in Uzbekistan.</span>
+            <span data-lang="ru" class="lang-inline">Налоговый, юридический и бизнес-консалтинг для компаний и частных лиц, работающих в Узбекистане.</span>
+            <span data-lang="zh" class="lang-inline">为在乌兹别克斯坦运营的企业和个人提供税务、法律与商业咨询服务。</span>
+          </p>
+          <p class="footer-group-note">
+            <span data-lang="en" class="lang-inline is-visible">Part of IBCCS TAX Group — Cyprus · Georgia · UAE · Uzbekistan</span>
+            <span data-lang="ru" class="lang-inline">Часть IBCCS TAX Group — Кипр · Грузия · ОАЭ · Узбекистан</span>
+            <span data-lang="zh" class="lang-inline">IBCCS TAX Group 成员机构 — 塞浦路斯 · 格鲁吉亚 · 阿联酋 · 乌兹别克斯坦</span>
+          </p>
+        </div>
+        <div>
+          <div class="flabel">
+            <span data-lang="en" class="lang-inline is-visible">Services</span>
+            <span data-lang="ru" class="lang-inline">Услуги</span>
+            <span data-lang="zh" class="lang-inline">服务</span>
+          </div>
+          <ul class="footer-links">
+            <li><a href="#"><span data-lang="en" class="lang-inline is-visible">Market Entry</span><span data-lang="ru" class="lang-inline">Выход на рынок</span><span data-lang="zh" class="lang-inline">市场准入</span></a></li>
+            <li><a href="#"><span data-lang="en" class="lang-inline is-visible">Finance &amp; Taxation</span><span data-lang="ru" class="lang-inline">Финансы и налогообложение</span><span data-lang="zh" class="lang-inline">财务与税务</span></a></li>
+            <li><a href="#"><span data-lang="en" class="lang-inline is-visible">Business Registration</span><span data-lang="ru" class="lang-inline">Регистрация бизнеса</span><span data-lang="zh" class="lang-inline">公司注册</span></a></li>
+            <li><a href="#"><span data-lang="en" class="lang-inline is-visible">Legal Services</span><span data-lang="ru" class="lang-inline">Юридические услуги</span><span data-lang="zh" class="lang-inline">法律服务</span></a></li>
+            <li><a href="#"><span data-lang="en" class="lang-inline is-visible">Expat Services</span><span data-lang="ru" class="lang-inline">Услуги для экспатов</span><span data-lang="zh" class="lang-inline">外籍人士服务</span></a></li>
+            <li><a href="#"><span data-lang="en" class="lang-inline is-visible">Startup Services</span><span data-lang="ru" class="lang-inline">Услуги для стартапов</span><span data-lang="zh" class="lang-inline">初创企业服务</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="flabel">
+            <span data-lang="en" class="lang-inline is-visible">Company</span>
+            <span data-lang="ru" class="lang-inline">Компания</span>
+            <span data-lang="zh" class="lang-inline">公司</span>
+          </div>
+          <ul class="footer-links">
+            <li><a href="#"><span data-lang="en" class="lang-inline is-visible">About Us</span><span data-lang="ru" class="lang-inline">О нас</span><span data-lang="zh" class="lang-inline">关于我们</span></a></li>
+            <li><a href="#"><span data-lang="en" class="lang-inline is-visible">Our Team</span><span data-lang="ru" class="lang-inline">Наша команда</span><span data-lang="zh" class="lang-inline">我们的团队</span></a></li>
+            <li><a href="#"><span data-lang="en" class="lang-inline is-visible">IBCCS Group</span><span data-lang="ru" class="lang-inline">Группа IBCCS</span><span data-lang="zh" class="lang-inline">IBCCS 集团</span></a></li>
+            <li><a href="privacy-policy.html"><span data-lang="en" class="lang-inline is-visible">Privacy Policy</span><span data-lang="ru" class="lang-inline">Privacy Policy</span><span data-lang="zh" class="lang-inline">Privacy Policy</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="flabel">
+            <span data-lang="en" class="lang-inline is-visible">Tashkent Office</span>
+            <span data-lang="ru" class="lang-inline">Офис в Ташкенте</span>
+            <span data-lang="zh" class="lang-inline">塔什干办公室</span>
+          </div>
+          <div class="footer-address">
+            64a Labzak Street<br>
+            Labzak MFY, Shayxontohur District<br>
+            Tashkent, Uzbekistan<br><br>
+            <a href="mailto:helloUzbekistan@ibccs.tax">helloUzbekistan@ibccs.tax</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="copy">
+          <span data-lang="en" class="lang-inline is-visible">© 2026 IBCCS TAX Uzbekistan. All rights reserved.</span>
+          <span data-lang="ru" class="lang-inline">© 2026 IBCCS TAX Uzbekistan. Все права защищены.</span>
+          <span data-lang="zh" class="lang-inline">© 2026 IBCCS TAX Uzbekistan。保留所有权利。</span>
+        </span>
+        <div class="footer-social">
+          <a href="#"><span data-lang="en" class="lang-inline is-visible">LinkedIn</span><span data-lang="ru" class="lang-inline">LinkedIn</span><span data-lang="zh" class="lang-inline">LinkedIn</span></a>
+          <a href="#"><span data-lang="en" class="lang-inline is-visible">Facebook</span><span data-lang="ru" class="lang-inline">Facebook</span><span data-lang="zh" class="lang-inline">Facebook</span></a>
+          <a href="#"><span data-lang="en" class="lang-inline is-visible">Instagram</span><span data-lang="ru" class="lang-inline">Instagram</span><span data-lang="zh" class="lang-inline">Instagram</span></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const titles = {
+      en: 'IBCCS TAX Uzbekistan — Tax, Legal & Business Advisory',
+      ru: 'IBCCS TAX Uzbekistan — Налоговый, юридический и бизнес-консалтинг',
+      zh: 'IBCCS TAX Uzbekistan — 税务、法律与商业咨询'
+    };
+
+    function setLanguage(lang) {
+      document.documentElement.lang = lang === 'zh' ? 'zh' : lang;
+      document.title = titles[lang] || titles.en;
+
+      document.querySelectorAll('.lang-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+
+      document.querySelectorAll('[data-lang]:not(.lang-btn)').forEach(el => {
+        el.classList.toggle('is-visible', el.dataset.lang === lang);
+      });
+
+      document.querySelectorAll('[data-ph-en]').forEach(el => {
+        const next = el.getAttribute(`data-ph-${lang}`);
+        if (next) el.placeholder = next;
+      });
+
+      document.querySelectorAll('option[data-opt-en]').forEach(el => {
+        const next = el.getAttribute(`data-opt-${lang}`);
+        if (next) el.textContent = next;
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
+
+    // Hamburger / mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    // Close menu when a link is clicked
+    mobileMenu.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    setLanguage('en');
+  </script>
+
 </body>
 </html>
