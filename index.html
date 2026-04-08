@@ -282,7 +282,11 @@
       text-transform: uppercase;
       color: rgba(255,255,255,0.92);
       margin-top: -30px;
-      margin-bottom: 16px;
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
       animation: fadeUp 0.8s ease 0.1s both;
     }
 
@@ -292,6 +296,10 @@
 
     .hero-location {
       color: var(--g);
+    }
+
+    .hero-meta-line {
+      display: block;
     }
 
     .hero-eyebrow a {
@@ -1254,9 +1262,9 @@
         <div class="hero-inner">
           <div>
             <div class="hero-eyebrow">
-              <span data-lang="en" class="lang-inline is-visible"><span class="hero-location">Tashkent · Uzbekistan</span> · Part of <a href="https://ibccs.tax/" target="_blank" rel="noopener noreferrer">IBCCS TAX Group</a></span>
-              <span data-lang="ru" class="lang-inline"><span class="hero-location">Ташкент · Узбекистан</span> · Часть <a href="https://ibccs.tax/" target="_blank" rel="noopener noreferrer">IBCCS TAX Group</a></span>
-              <span data-lang="zh" class="lang-inline"><span class="hero-location">塔什干 · 乌兹别克斯坦</span> · 隶属于 <a href="https://ibccs.tax/" target="_blank" rel="noopener noreferrer">IBCCS TAX Group</a></span>
+              <span data-lang="en" class="lang-block is-visible"><span class="hero-meta-line hero-location">Tashkent · Uzbekistan</span><span class="hero-meta-line">Part of <a href="https://ibccs.tax/" target="_blank" rel="noopener noreferrer">IBCCS TAX Group</a></span></span>
+              <span data-lang="ru" class="lang-block"><span class="hero-meta-line hero-location">Ташкент · Узбекистан</span><span class="hero-meta-line">Часть <a href="https://ibccs.tax/" target="_blank" rel="noopener noreferrer">IBCCS TAX Group</a></span></span>
+              <span data-lang="zh" class="lang-block"><span class="hero-meta-line hero-location">塔什干 · 乌兹别克斯坦</span><span class="hero-meta-line">隶属于 <a href="https://ibccs.tax/" target="_blank" rel="noopener noreferrer">IBCCS TAX Group</a></span></span>
             </div>
             <h1 class="hero-h1">
               <span data-lang="en" class="lang-block is-visible">
