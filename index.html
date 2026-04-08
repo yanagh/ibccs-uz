@@ -6,7 +6,7 @@
   <title>IBCCS TAX Uzbekistan — Tax, Legal & Business Advisory</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&family=Roboto+Condensed:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -37,6 +37,46 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
       max-width: 100%;
+    }
+
+    html[lang="ru"] body,
+    html[lang="ru"] p,
+    html[lang="ru"] a,
+    html[lang="ru"] li,
+    html[lang="ru"] input,
+    html[lang="ru"] select,
+    html[lang="ru"] textarea,
+    html[lang="ru"] .hero-sub,
+    html[lang="ru"] .intro-body p,
+    html[lang="ru"] .services-sub,
+    html[lang="ru"] .svc-desc,
+    html[lang="ru"] .statement-right p,
+    html[lang="ru"] .sectors-desc,
+    html[lang="ru"] .team-sub,
+    html[lang="ru"] .contact-text,
+    html[lang="ru"] .cdetail-val,
+    html[lang="ru"] .footer-tagline,
+    html[lang="ru"] .footer-address,
+    html[lang="ru"] .footer-links a,
+    html[lang="ru"] .copy {
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+
+    html[lang="ru"] nav a,
+    html[lang="ru"] .nav-btn,
+    html[lang="ru"] .lang-btn,
+    html[lang="ru"] .hero-eyebrow,
+    html[lang="ru"] .aside-label,
+    html[lang="ru"] .section-label,
+    html[lang="ru"] .text-link,
+    html[lang="ru"] .form-label,
+    html[lang="ru"] .form-submit,
+    html[lang="ru"] .flabel,
+    html[lang="ru"] .footer-social a,
+    html[lang="ru"] .member-linkedin,
+    html[lang="ru"] .member-role,
+    html[lang="ru"] .hero-group {
+      font-family: 'Roboto Condensed', sans-serif;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -236,23 +276,30 @@
 
     .hero-eyebrow {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 10px;
+      font-size: 15px;
       font-weight: 600;
-      letter-spacing: 0.36em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--g);
-      margin-bottom: 21px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      color: rgba(255,255,255,0.92);
+      margin-top: -30px;
+      margin-bottom: 16px;
       animation: fadeUp 0.8s ease 0.1s both;
     }
 
     .hero-eyebrow::before {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: var(--g);
+      content: none;
+    }
+
+    .hero-location {
+      color: var(--g);
+    }
+
+    .hero-eyebrow a {
+      color: var(--g);
+    }
+
+    .hero-eyebrow a:hover {
+      color: #75b9af;
     }
 
     .hero-h1 {
@@ -332,11 +379,11 @@
 
     .aside-label {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 9px;
+      font-size: 14px;
       font-weight: 600;
-      letter-spacing: 0.32em;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--muted2);
+      color: var(--g);
       margin-bottom: 28px;
     }
 
@@ -381,9 +428,9 @@
 
     .section-label {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 9px;
+      font-size: 12px;
       font-weight: 600;
-      letter-spacing: 0.36em;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--g);
       margin-bottom: 24px;
@@ -423,9 +470,9 @@
 
     .text-link {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 11px;
+      font-size: 14px;
       font-weight: 600;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--g);
       display: inline-flex;
@@ -652,7 +699,7 @@
 
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
     }
 
@@ -690,16 +737,28 @@
     }
 
     .member-linkedin {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--border-strong);
+      border-radius: 50%;
       color: var(--g);
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
       opacity: 1;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .member-linkedin svg {
+      width: 14px;
+      height: 14px;
+      display: block;
+      fill: currentColor;
+    }
+
+    .member-linkedin:hover {
+      border-color: var(--g);
+      background: rgba(94,163,151,0.10);
     }
 
     /* ── CONTACT ── */
@@ -845,9 +904,41 @@
     }
 
     .footer-group-note {
-      font-size: 10.5px;
-      color: rgba(255,255,255,0.65);
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px 10px;
+      align-items: center;
+      margin-top: 16px;
+      padding: 14px 16px;
+      border: 1px solid rgba(94,163,151,0.32);
+      background: rgba(94,163,151,0.12);
+      font-size: 12px;
+      color: rgba(255,255,255,0.92);
       letter-spacing: 0.04em;
+      line-height: 1.7;
+    }
+
+    .footer-group-line {
+      display: block;
+      width: 100%;
+    }
+
+    .footer-group-note strong {
+      color: var(--g);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .footer-group-note a {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .footer-group-note a:hover {
+      color: var(--g);
     }
 
     .flabel {
@@ -1163,9 +1254,9 @@
         <div class="hero-inner">
           <div>
             <div class="hero-eyebrow">
-              <span data-lang="en" class="lang-inline is-visible">Tashkent · Uzbekistan</span>
-              <span data-lang="ru" class="lang-inline">Ташкент · Узбекистан</span>
-              <span data-lang="zh" class="lang-inline">塔什干 · 乌兹别克斯坦</span>
+              <span data-lang="en" class="lang-inline is-visible"><span class="hero-location">Tashkent · Uzbekistan</span> · Part of <a href="https://ibccs.tax/" target="_blank" rel="noopener noreferrer">IBCCS TAX Group</a></span>
+              <span data-lang="ru" class="lang-inline"><span class="hero-location">Ташкент · Узбекистан</span> · Часть <a href="https://ibccs.tax/" target="_blank" rel="noopener noreferrer">IBCCS TAX Group</a></span>
+              <span data-lang="zh" class="lang-inline"><span class="hero-location">塔什干 · 乌兹别克斯坦</span> · 隶属于 <a href="https://ibccs.tax/" target="_blank" rel="noopener noreferrer">IBCCS TAX Group</a></span>
             </div>
             <h1 class="hero-h1">
               <span data-lang="en" class="lang-block is-visible">
@@ -1526,10 +1617,8 @@
                 <span data-lang="ru" class="lang-inline">Основатель</span>
                 <span data-lang="zh" class="lang-inline">创始人</span>
               </div>
-              <a href="#" class="member-linkedin">
-                <span data-lang="en" class="lang-inline is-visible">LinkedIn →</span>
-                <span data-lang="ru" class="lang-inline">LinkedIn →</span>
-                <span data-lang="zh" class="lang-inline">LinkedIn →</span>
+              <a href="https://www.linkedin.com/in/ketevan-aghoshashvili-b9414140/" class="member-linkedin" aria-label="Ketevan Aghoshashvili LinkedIn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5H3.56V20h3.38zM5.25 3A1.96 1.96 0 1 0 5.3 6.92 1.96 1.96 0 0 0 5.25 3m6.01 5.5H8.02V20h3.24v-6.04c0-1.59.3-3.13 2.27-3.13 1.95 0 1.98 1.82 1.98 3.23V20h3.24v-6.6c0-3.25-.7-5.75-4.5-5.75-1.82 0-3.04 1-3.54 1.95h-.05z"/></svg>
               </a>
             </div>
           </div>
@@ -1538,14 +1627,26 @@
             <div class="member-info">
               <div class="member-name">Irakli Arjevanidze</div>
               <div class="member-role">
-                <span data-lang="en" class="lang-inline is-visible">Director</span>
-                <span data-lang="ru" class="lang-inline">Директор</span>
-                <span data-lang="zh" class="lang-inline">总监</span>
+                <span data-lang="en" class="lang-inline is-visible">Director / Founder</span>
+                <span data-lang="ru" class="lang-inline">Директор / Основатель</span>
+                <span data-lang="zh" class="lang-inline">总监 / 创始人</span>
               </div>
-              <a href="#" class="member-linkedin">
-                <span data-lang="en" class="lang-inline is-visible">LinkedIn →</span>
-                <span data-lang="ru" class="lang-inline">LinkedIn →</span>
-                <span data-lang="zh" class="lang-inline">LinkedIn →</span>
+              <a href="https://www.linkedin.com/in/irakli-arjevanidze-mba/" class="member-linkedin" aria-label="Irakli Arjevanidze LinkedIn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5H3.56V20h3.38zM5.25 3A1.96 1.96 0 1 0 5.3 6.92 1.96 1.96 0 0 0 5.25 3m6.01 5.5H8.02V20h3.24v-6.04c0-1.59.3-3.13 2.27-3.13 1.95 0 1.98 1.82 1.98 3.23V20h3.24v-6.6c0-3.25-.7-5.75-4.5-5.75-1.82 0-3.04 1-3.54 1.95h-.05z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="member">
+            <img src="assets/Cesary.png" alt="Cezary Zieniuk" class="member-photo" />
+            <div class="member-info">
+              <div class="member-name">Cezary Zieniuk</div>
+              <div class="member-role">
+                <span data-lang="en" class="lang-inline is-visible">Founder</span>
+                <span data-lang="ru" class="lang-inline">Основатель</span>
+                <span data-lang="zh" class="lang-inline">创始人</span>
+              </div>
+              <a href="https://www.linkedin.com/in/cezary-zieniuk-39a1aa17/" class="member-linkedin" aria-label="Cezary Zieniuk LinkedIn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5H3.56V20h3.38zM5.25 3A1.96 1.96 0 1 0 5.3 6.92 1.96 1.96 0 0 0 5.25 3m6.01 5.5H8.02V20h3.24v-6.04c0-1.59.3-3.13 2.27-3.13 1.95 0 1.98 1.82 1.98 3.23V20h3.24v-6.6c0-3.25-.7-5.75-4.5-5.75-1.82 0-3.04 1-3.54 1.95h-.05z"/></svg>
               </a>
             </div>
           </div>
@@ -1558,10 +1659,8 @@
                 <span data-lang="ru" class="lang-inline">Менеджер по работе с клиентами</span>
                 <span data-lang="zh" class="lang-inline">客户经理</span>
               </div>
-              <a href="#" class="member-linkedin">
-                <span data-lang="en" class="lang-inline is-visible">LinkedIn →</span>
-                <span data-lang="ru" class="lang-inline">LinkedIn →</span>
-                <span data-lang="zh" class="lang-inline">LinkedIn →</span>
+              <a href="#" class="member-linkedin" aria-label="Farrukh Kholmatov LinkedIn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 8.5H3.56V20h3.38zM5.25 3A1.96 1.96 0 1 0 5.3 6.92 1.96 1.96 0 0 0 5.25 3m6.01 5.5H8.02V20h3.24v-6.04c0-1.59.3-3.13 2.27-3.13 1.95 0 1.98 1.82 1.98 3.23V20h3.24v-6.6c0-3.25-.7-5.75-4.5-5.75-1.82 0-3.04 1-3.54 1.95h-.05z"/></svg>
               </a>
             </div>
           </div>
@@ -1684,9 +1783,9 @@
             <span data-lang="zh" class="lang-inline">为在乌兹别克斯坦运营的企业和个人提供税务、法律与商业咨询服务。</span>
           </p>
           <p class="footer-group-note">
-            <span data-lang="en" class="lang-inline is-visible">Part of IBCCS TAX Group — Cyprus · Georgia · UAE · Uzbekistan</span>
-            <span data-lang="ru" class="lang-inline">Часть IBCCS TAX Group — Кипр · Грузия · ОАЭ · Узбекистан</span>
-            <span data-lang="zh" class="lang-inline">IBCCS TAX Group 成员机构 — 塞浦路斯 · 格鲁吉亚 · 阿联酋 · 乌兹别克斯坦</span>
+            <span data-lang="en" class="lang-inline is-visible"><strong class="footer-group-line">Part of IBCCS TAX Group:</strong><span class="footer-group-line"><a href="https://ibccs.tax/" target="_blank" rel="noopener noreferrer">Cyprus</a> · <a href="https://www.ibccs.ge/" target="_blank" rel="noopener noreferrer">Georgia</a></span><span class="footer-group-line"><a href="https://ibccs.ae/" target="_blank" rel="noopener noreferrer">UAE</a> · Uzbekistan</span></span>
+            <span data-lang="ru" class="lang-inline"><strong class="footer-group-line">Часть IBCCS TAX Group:</strong><span class="footer-group-line"><a href="https://ibccs.tax/" target="_blank" rel="noopener noreferrer">Cyprus</a> · <a href="https://www.ibccs.ge/" target="_blank" rel="noopener noreferrer">Georgia</a></span><span class="footer-group-line"><a href="https://ibccs.ae/" target="_blank" rel="noopener noreferrer">UAE</a> · Uzbekistan</span></span>
+            <span data-lang="zh" class="lang-inline"><strong class="footer-group-line">隶属于 IBCCS TAX Group:</strong><span class="footer-group-line"><a href="https://ibccs.tax/" target="_blank" rel="noopener noreferrer">Cyprus</a> · <a href="https://www.ibccs.ge/" target="_blank" rel="noopener noreferrer">Georgia</a></span><span class="footer-group-line"><a href="https://ibccs.ae/" target="_blank" rel="noopener noreferrer">UAE</a> · Uzbekistan</span></span>
           </p>
         </div>
         <div>
